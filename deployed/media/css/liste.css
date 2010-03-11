@@ -1,0 +1,26 @@
+.liste {
+	border-collapse: collapse;
+	padding: 12px;
+	margin: 0 auto;
+}
+
+.liste th, .liste td {
+	padding: 0.2em 1em;
+}
+
+.liste tr > th {
+	text-align: left;
+}
+
+.liste tr > td {
+	border: 1px solid #94da3a;
+	border-width: 1px 0;
+	background: #e0ffb8;
+}
+
+.liste td {
+}
+
+tr.empty {
+	height: 12px;
+}

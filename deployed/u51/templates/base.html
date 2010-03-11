@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>u51</title>
+	<link rel="shortcut icon" type="image/x-icon" href="{{ MEDIA_URL }}images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/layout.css" />
+
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery-1.3.2.min.js"></script>
+	{% block extrahead %}{% endblock %}
+</head>
+<body>
+	<div id="page">
+		{% block content %}{% endblock %}
+	</div>
+</body>
+</html>
+

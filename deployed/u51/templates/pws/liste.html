@@ -1,0 +1,28 @@
+{% block liste %}
+{% if eintrag_list %}
+<table class="liste">
+	<tr>
+		<th>Wo</th>
+		<th>Benutzername</th>
+		<th>Email</th>
+		<th>Passwort</th>
+		<th>Extra-Info</th>
+		<th>Angelegt</th>
+	</tr>
+	{% for eintrag in eintrag_list %}
+	<tr class="empty"></tr>
+	<tr>    
+		<td>{{ eintrag.name }}</td>
+		<td>{{ eintrag.user }}</td>
+		<td>{{ eintrag.email }}</td>
+		<td>{{ eintrag.pw }}</td>
+		<td>{{ eintrag.extra }}</td>
+		<td>{{ eintrag.eingetragen|date:"d.m.Y" }}</td>
+	</tr>
+	{% endfor %}
+	<tr class="empty"></tr>
+</table>
+{% else %}
+<p class="noentries">Keine Einträge vorhanden.</p>
+{% endif %}
+{% endblock %}
