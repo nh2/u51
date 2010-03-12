@@ -1,0 +1,7 @@
+.form input, .form textarea {
+	border: 1px solid #487858;
+}
+
+.form th {
+	text-align: right;
+}
