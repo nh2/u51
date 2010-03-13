@@ -16,6 +16,8 @@ urlpatterns = patterns('',
 	(r'^$', list_detail.object_list, eintraege, 'liste'),
 	(r'^edit/$', views.create_edit_eintrag),
 	(r'^edit/(?P<id>\d+)/$', views.create_edit_eintrag),
+	(r'^edit/flat/$', views.create_edit_eintrag, {'flat': True}),
+	(r'^edit/(?P<id>\d+)/flat$', views.create_edit_eintrag, {'flat': True}),
 )
 
 if settings.DEBUG:

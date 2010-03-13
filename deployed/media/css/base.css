@@ -1,5 +1,24 @@
 @import url("/media/css/font-linux-libertine.css");
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
+	line-height: 1em;
 	font-family: "Linux Libertine O",serif;
+}
+
+img {
+	border: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }

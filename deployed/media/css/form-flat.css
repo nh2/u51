@@ -1,0 +1,40 @@
+.form {
+	color: #487858;
+}
+
+.form input, .form textarea {
+	border: 1px solid #487858;
+}
+.formcontrol {
+	padding: .2em;
+}
+
+.form input {
+	vertical-align: top;
+}
+
+.leftentries th {
+	text-align: right;
+	vertical-align: top;
+}
+
+.leftentries td,
+.leftentries th {
+	padding-bottom: .5em;
+}
+.leftentries tr:last-child td,
+.leftentries tr:last-child th {
+	padding-bottom: 0;
+}
+
+.form label {
+	margin: 0 .2em;
+}
+
+.td_submit {
+	text-align: center;
+}
+
+.form input[type=submit] {
+	width: 100%;
+}

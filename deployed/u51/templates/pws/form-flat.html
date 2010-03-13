@@ -1,0 +1,24 @@
+{% block form %}
+	<form action="" method="post" class="form">
+		<table>
+			<tr>
+				<td class="formcontrol left">
+					<table class="leftentries">
+						<tr><th>{{ form.name.label_tag }}</th><td>{{ form.name }}</td></tr>
+						<tr><th>{{ form.user.label_tag }}</th><td>{{ form.user }}</td></tr>
+						<tr><th>{{ form.pw.label_tag }}</th><td>{{ form.pw }}</td></tr>
+						<tr><th>{{ form.email.label_tag }}</th><td>{{ form.email }}</td></tr>
+					</table>
+				</td>
+				<td class="formcontrol right">
+					<table>
+						<tr><td>{{ form.extra }}</td><th>{{ form.extra.label_tag }}</th></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 class="td_submit"><input type="submit" value="Abschicken" /></td>
+			</tr>
+		</table>
+	</form>
+{% endblock %}
