@@ -1,3 +1,4 @@
+{% load ttags %}
 {% block liste %}
 {% if eintrag_list %}
 <table class="liste">
@@ -10,17 +11,17 @@
 		<th>Angelegt</th>
 	</tr>
 	{% for eintrag in eintrag_list %}
-	<tr class="empty"></tr>
+	<tr class="empty"><td /></tr>
 	<tr>
-		<td>{{ eintrag.name }}</td>
+		<td><a href="/edit/{{eintrag.id}}">{{ eintrag.name }}</a></td>
 		<td>{{ eintrag.user }}</td>
 		<td>{{ eintrag.email }}</td>
 		<td>{{ eintrag.pw }}</td>
-		<td>{{ eintrag.extra }}</td>
+		<td><div class="extra">{{ eintrag.extra }}</div></td>
 		<td>{{ eintrag.eingetragen|date:"d.m.Y" }}</td>
+		<td class="td_loeschform">{% loeschform eintrag.id "X" "/delete/" %}</td><!-- TODO check url() -->
 	</tr>
 	{% endfor %}
-	<tr class="empty"></tr>
 </table>
 {% else %}
 <p class="noentries">Keine Einträge vorhanden.</p>

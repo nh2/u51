@@ -1,23 +1,24 @@
+{% load ttags %}
 {% block form %}
-	<form action="" method="post" class="form">
+	<form action="{% if form.id %}{% url edit form.id %}{% else %}{% url update %}{% endif %}" method="post" class="form">
 		<table>
 			<tr>
 				<td class="formcontrol left">
-					<table class="leftentries">
-						<tr><th>{{ form.name.label_tag }}</th><td>{{ form.name }}</td></tr>
-						<tr><th>{{ form.user.label_tag }}</th><td>{{ form.user }}</td></tr>
-						<tr><th>{{ form.pw.label_tag }}</th><td>{{ form.pw }}</td></tr>
-						<tr><th>{{ form.email.label_tag }}</th><td>{{ form.email }}</td></tr>
+					<table>
+						<tr><th>{{ form.name.label_tag }}{% ausfuellfehler form.name %}</th><td>{{ form.name }}</td></tr>
+						<tr><th>{{ form.user.label_tag }}{% ausfuellfehler form.user %}</th><td>{{ form.user }}</td></tr>
+						<tr><th>{{ form.pw.label_tag }}{% ausfuellfehler form.pw %}</th><td>{{ form.pw }}</td></tr>
+						<tr><th>{{ form.email.label_tag }}{% ausfuellfehler form.email %}</th><td>{{ form.email }}</td></tr>
 					</table>
 				</td>
 				<td class="formcontrol right">
 					<table>
-						<tr><td>{{ form.extra }}</td><th>{{ form.extra.label_tag }}</th></tr>
+						<tr><td>{{ form.extra }}</td><th>{% ausfuellfehler form.extra %}{{ form.extra.label_tag }}{{ form.extra.errors }}</th></tr>
 					</table>
 				</td>
 			</tr>
 			<tr>
-				<td colspan=2 class="td_submit"><input type="submit" value="Abschicken" /></td>
+				<td colspan=2 class="td_submit"><input type="submit" name="{{ form.submit_name }}" value="Abschicken" /></td>
 			</tr>
 		</table>
 	</form>

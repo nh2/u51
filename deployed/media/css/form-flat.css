@@ -4,6 +4,7 @@
 
 .form input, .form textarea {
 	border: 1px solid #487858;
+	background-color: transparent;
 }
 .formcontrol {
 	padding: .2em;
@@ -11,24 +12,28 @@
 
 .form input {
 	vertical-align: top;
+	color: inherit;
 }
 
-.leftentries th {
+.left th {
 	text-align: right;
 	vertical-align: top;
 }
 
-.leftentries td,
-.leftentries th {
+.left td,
+.left th {
 	padding-bottom: .5em;
 }
-.leftentries tr:last-child td,
-.leftentries tr:last-child th {
+.left tr:last-child td,
+.left tr:last-child th {
 	padding-bottom: 0;
 }
 
-.form label {
-	margin: 0 .2em;
+.left th {
+	padding-right: .2em;
+}
+.right th {
+	padding-left: .2em;
 }
 
 .td_submit {
@@ -37,4 +42,15 @@
 
 .form input[type=submit] {
 	width: 100%;
+}
+
+.ausfuellfehler {
+	display: inline;
+}
+
+.ausfuellfehler .zeichen {
+	color: #f00;
+}
+
+.ausfuellfehler .errorlist {
 }

@@ -75,4 +75,16 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+
+	'u51.pws',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+	'django.core.context_processors.auth',
+	'django.core.context_processors.debug',
+	'django.core.context_processors.i18n',
+	'django.core.context_processors.media',
+	'pws.context_processors.jquery',
+)
+
+JQUERY_URL = os.path.join(MEDIA_URL, 'js', 'jquery', 'jquery-1.4.2.js')

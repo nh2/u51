@@ -1,9 +1,13 @@
 {% extends "base.html" %}
+{% load ttags %}
 
 {% block extrahead %}
+	{% include "pws/form-flat.head" %}
 	{% include "pws/liste.head" %}
+	{% include "pws/main.head" %}
 {% endblock %}
 
 {% block content %}
-	{% include "pws/liste.html" %}
+	{% include_form %}
+	{% include_liste %}
 {% endblock %}

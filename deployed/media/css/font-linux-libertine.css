@@ -23,7 +23,6 @@ font-weight: bold;
 }
 
 @font-face {
-font-family: "Linux Libertine O";
+font-family: "Linux Libertine O C";
 src: url('/media/fonts/linux-libertine/LinLibertineC_Re-4.0_.1_.ttf') format("truetype");
-font-variant: small-caps;
 }
