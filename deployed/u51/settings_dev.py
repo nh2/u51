@@ -32,7 +32,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
@@ -87,4 +87,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	'pws.context_processors.jquery',
 )
 
-JQUERY_URL = os.path.join(MEDIA_URL, 'js', 'jquery', 'jquery-1.4.2.js')
+JQ_URL = os.path.join(MEDIA_URL, 'js', 'jquery')
+JQ_JQ = os.path.join(JQ_URL, 'jquery-1.4.2.js')
+JQ_QTIP = os.path.join(JQ_URL, 'qtip', 'jquery.qtip-1.0.js')
