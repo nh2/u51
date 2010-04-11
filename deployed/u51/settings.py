@@ -1,7 +1,7 @@
 import os
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -32,7 +32,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
@@ -46,7 +46,7 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '(sd#o2hmvss272a&h9!a^dzb#1sis^_x24lby6q&rzb*)d^k33'
@@ -87,4 +87,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	'pws.context_processors.jquery',
 )
 
-JQUERY_URL = os.path.join(MEDIA_URL, 'js', 'jquery', 'jquery-1.4.2.js')
+JS_URL = os.path.join(MEDIA_URL, 'js')
+
+JQ_URL = os.path.join(JS_URL, 'jquery')
+JQ_JQ = os.path.join(JQ_URL, 'jquery-1.4.2.js')
+JQ_QTIP = os.path.join(JQ_URL, 'qtip', 'jquery.qtip-1.0.js')
+JQ_UITABLEFILTER = os.path.join(JQ_URL, 'uitablefilter', 'jquery.uitablefilter.mod.js')
+JQ_TABLESORTER = os.path.join(JQ_URL, 'tablesorter', 'jquery.tablesorter.js')
+JQ_HOVERINTENT = os.path.join(JQ_URL, 'hoverintent', 'jquery.hoverintent.js')
+JQ_UIEFFECTS = os.path.join(JQ_URL, 'ui', 'jquery.ui-1.8.effects-custom.js')
+
+JS_COPYTOCLIPBOARD = os.path.join(JS_URL, 'copytoclipboard.js')
