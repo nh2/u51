@@ -1,7 +1,13 @@
 {% load ttags %}
 {% block liste %}
 {% if eintrag_list %}
+
+<div class="filterhover">
+	<p>Filter <input type="text" class="listefilter" /></p>
+</div>
+
 <table class="liste">
+	<thead>
 	<tr>
 		<th>Wo</th>
 		<th>Benutzername</th>
@@ -10,18 +16,22 @@
 		<th>Extra-Info</th>
 		<th>Angelegt</th>
 	</tr>
+	</thead>
+	<tbody>
 	{% for eintrag in eintrag_list %}
-	<tr class="empty"><td /></tr>
+	<!-- multiple tds needed for tablesorter to work -->
+	<tr class="empty nofilter"><td /><td /><td /><td /><td /><td /></tr>
 	<tr>
 		<td><a href="/edit/{{eintrag.id}}">{{ eintrag.name }}</a></td>
 		<td>{{ eintrag.user }}</td>
 		<td>{{ eintrag.email }}</td>
-		<td>{{ eintrag.pw }}</td>
+		<td class="pw showonhover">{{ eintrag.pw }}</td>
 		<td><div class="extra">{{ eintrag.extra }}</div></td>
 		<td>{{ eintrag.eingetragen|date:"d.m.Y" }}</td>
 		<td class="td_loeschform">{% loeschform eintrag.id "X" "/delete/" %}</td><!-- TODO check url() -->
 	</tr>
 	{% endfor %}
+	</tbody>
 </table>
 {% else %}
 <p class="noentries">Keine Einträge vorhanden.</p>

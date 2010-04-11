@@ -14,6 +14,15 @@
 	text-align: left;
 	font-weight: normal;
 	font-family: "Linux Libertine O C";
+	border-bottom: 3px solid transparent;
+}
+
+th.header {
+	cursor: pointer;
+}
+
+th.headerSortUp, th.headerSortDown {
+	border-color: #e0ffb8;
 }
 
 .liste td {
@@ -51,4 +60,49 @@
 
 .liste div.extra {
 	max-width: 20em;
+}
+
+
+td.showonhover {
+	color: transparent;
+}
+
+td.showonhover:hover {
+	color: inherit;
+}
+
+.pwmenu {
+	position: relative;
+	cursor: default;
+}
+
+.pwmenu p {
+	text-align: center;
+}
+
+.pwmenu .actions {
+	display: none;
+	position: absolute;
+	top:-1em;
+	background-color: white;
+	font: .75em sans-serif;
+	padding: 0 .1em;
+	text-align: center;
+	border-top: 1px solid #94da3a;
+	border-bottom: 1px solid #94da3a;
+	background-color: #e0ffb8;
+}
+
+.pwmenu .actions li {
+	margin: .1em;
+	padding: .1em .6em;
+}
+
+.pwmenu .actions li:hover {
+	color: #487858;
+}
+
+.pwmenu .actions li.plainpw {
+	color: #000;
+	cursor: text;
 }

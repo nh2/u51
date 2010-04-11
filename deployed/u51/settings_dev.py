@@ -87,6 +87,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	'pws.context_processors.jquery',
 )
 
-JQ_URL = os.path.join(MEDIA_URL, 'js', 'jquery')
+JS_URL = os.path.join(MEDIA_URL, 'js')
+
+JQ_URL = os.path.join(JS_URL, 'jquery')
 JQ_JQ = os.path.join(JQ_URL, 'jquery-1.4.2.js')
 JQ_QTIP = os.path.join(JQ_URL, 'qtip', 'jquery.qtip-1.0.js')
+JQ_UITABLEFILTER = os.path.join(JQ_URL, 'uitablefilter', 'jquery.uitablefilter.mod.js')
+JQ_TABLESORTER = os.path.join(JQ_URL, 'tablesorter', 'jquery.tablesorter.js')
+JQ_HOVERINTENT = os.path.join(JQ_URL, 'hoverintent', 'jquery.hoverintent.js')
+JQ_UIEFFECTS = os.path.join(JQ_URL, 'ui', 'jquery.ui-1.8.effects-custom.js')
+
+JS_COPYTOCLIPBOARD = os.path.join(JS_URL, 'copytoclipboard.js')

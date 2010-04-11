@@ -8,3 +8,6 @@ class Eintrag(models.Model):
 	extra = models.TextField(blank=True)
 	eingetragen = models.DateField(auto_now=True)
 	geaendert = models.DateField(auto_now_add=True)
+
+	class Meta:
+		ordering = ['name']
