@@ -3,7 +3,7 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.views.generic import list_detail
 from u51.pws.models import Eintrag
-from u51.pws import views
+from u51.pws import views, forms
 
 # admin.autodiscover()
 
@@ -17,6 +17,8 @@ eintraege_main = {
 eintraege_main.update(eintraege)
 
 urlpatterns = patterns('',
+	(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'pws/login.html', 'authentication_form': forms.LoginForm}),
+
 	(r'^$', views.main, {}, 'main'),
 	(r'^edit/$', views.main_update_eintrag, {}, 'update'),
 	(r'^edit/(?P<id>\d+)/$', views.main_update_eintrag, {}, 'edit'),

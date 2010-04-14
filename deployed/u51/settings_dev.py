@@ -87,6 +87,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	'pws.context_processors.jquery',
 )
 
+LOGIN_URL='/login/'
+
+AUTHENTICATION_BACKENDS = ('pws.AuthBackends.SingleBackend',)
+
+# for a simple one-user auth system
+LOGIN_USER='user'
+
+
 JS_URL = os.path.join(MEDIA_URL, 'js')
 
 JQ_URL = os.path.join(JS_URL, 'jquery')

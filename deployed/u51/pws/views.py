@@ -1,10 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic.simple import direct_to_template
+from django.contrib.auth.decorators import login_required
 from django.utils import simplejson
 from u51.pws.models import Eintrag
 from u51.pws.forms import EintragForm
 
+@login_required
 def update_eintrag(request, id=None):
 	submitted = (request.method == 'POST') and request.POST
 	form = EintragForm(submitted or None, instance=(id and get_object_or_404(Eintrag, id=id)), label_suffix='')
@@ -14,6 +16,7 @@ def update_eintrag(request, id=None):
 
 	return form
 
+@login_required
 def eintrag_editor(request, id=None, flat=False):
 	form = create_edit_eintrag(request, id)
 	if form.is_valid():
@@ -26,10 +29,12 @@ def eintrag_editor(request, id=None, flat=False):
 
 	return direct_to_template(request, template, {'form': form})
 
+@login_required
 def main(request, form=None):
 	form = form or update_eintrag(request, None)
 	return direct_to_template(request, 'pws/main.html', {'form': form})
 
+@login_required
 def main_update_eintrag(request, id=None):
 	form = update_eintrag(request, id)
 	if form.is_valid():
@@ -38,6 +43,7 @@ def main_update_eintrag(request, id=None):
 	form.id = id
 	return main(request, form=form)
 
+@login_required
 def main_delete_eintrag(request):
 	submitted = (request.method == 'POST') and request.POST
 	if submitted:
