@@ -21,7 +21,8 @@ th.header {
 	cursor: pointer;
 }
 
-th.headerSortUp, th.headerSortDown {
+th.headerSortUp,
+th.headerSortDown {
 	border-color: #e0ffb8;
 }
 

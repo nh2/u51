@@ -19,6 +19,7 @@ def get_or_create_default_user():
 	except User.DoesNotExist:
 		# Create the LOGIN_USER and return it
 		# to permit first login with an empty password.
-		user = User(username=settings.LOGIN_USER, password='')
+		user = User(username=settings.LOGIN_USER)
+		user.set_password('')
 		user.save()
 		return user

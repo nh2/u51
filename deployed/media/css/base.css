@@ -9,6 +9,27 @@ a:hover {
 	text-decoration: underline;
 }
 
-input, textarea {
+form {
+	color: #487858;
+}
+
+input,
+textarea {
 	border: 1px solid #487858;
+	background-color: transparent;
+	color: inherit;
+}
+
+.error {
+	color: #D62222;
+}
+
+.ausfuellfehler {
+	display: inline;
+}
+
+.ausfuellfehler .zeichen {
+}
+
+.ausfuellfehler .errorlist {
 }

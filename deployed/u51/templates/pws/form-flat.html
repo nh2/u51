@@ -5,15 +5,15 @@
 			<tr>
 				<td class="formcontrol left">
 					<table>
-						<tr><th>{{ form.name.label_tag }}{% ausfuellfehler form.name %}</th><td>{{ form.name }}</td></tr>
-						<tr><th>{{ form.user.label_tag }}{% ausfuellfehler form.user %}</th><td>{{ form.user }}</td></tr>
-						<tr><th>{{ form.pw.label_tag }}{% ausfuellfehler form.pw %}</th><td>{{ form.pw }}</td></tr>
-						<tr><th>{{ form.email.label_tag }}{% ausfuellfehler form.email %}</th><td>{{ form.email }}</td></tr>
+						<tr><th>{{ form.name.label_tag }}{% ausfuellfehler form.name.errors %}</th><td>{{ form.name }}</td></tr>
+						<tr><th>{{ form.user.label_tag }}{% ausfuellfehler form.user.errors %}</th><td>{{ form.user }}</td></tr>
+						<tr><th>{{ form.pw.label_tag }}{% ausfuellfehler form.pw.errors %}</th><td>{{ form.pw }}</td></tr>
+						<tr><th>{{ form.email.label_tag }}{% ausfuellfehler form.email.errors %}</th><td>{{ form.email }}</td></tr>
 					</table>
 				</td>
 				<td class="formcontrol right">
 					<table>
-						<tr><td>{{ form.extra }}</td><th>{% ausfuellfehler form.extra %}{{ form.extra.label_tag }}{{ form.extra.errors }}</th></tr>
+						<tr><td>{{ form.extra }}</td><th>{% ausfuellfehler form.extra.errors %}{{ form.extra.label_tag }}{{ form.extra.errors }}</th></tr>
 					</table>
 				</td>
 			</tr>

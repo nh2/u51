@@ -1,18 +1,5 @@
-.form {
-	color: #487858;
-}
-
-.form input, .form textarea {
-	border: 1px solid #487858;
-	background-color: transparent;
-}
 .formcontrol {
 	padding: .2em;
-}
-
-.form input {
-	vertical-align: top;
-	color: inherit;
 }
 
 .left th {
@@ -42,15 +29,4 @@
 
 .form input[type=submit] {
 	width: 100%;
-}
-
-.ausfuellfehler {
-	display: inline;
-}
-
-.ausfuellfehler .zeichen {
-	color: #D62222;
-}
-
-.ausfuellfehler .errorlist {
 }

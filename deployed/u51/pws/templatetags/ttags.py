@@ -17,9 +17,15 @@ def include_form(context):
 	}
 
 @register.inclusion_tag('pws/ausfuellfehler.html')
-def ausfuellfehler(formfield):
+def ausfuellfehler(messagewrap):
 	return {
-		'formfield': formfield,
+		'message': messagewrap,
+	}
+
+@register.inclusion_tag('pws/ausfuellfehler_message.html')
+def ausfuellfehler_message(message):
+	return {
+		'message': message,
 	}
 
 @register.inclusion_tag('pws/loeschform.html')

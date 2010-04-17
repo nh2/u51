@@ -1,0 +1,22 @@
+.authpage {
+	text-align: center;
+	margin: 2em auto;
+	padding: 1em;
+	width: 40%;
+	border: 5px solid #e0ffb8;
+}
+
+.authpage table {
+	margin: 0 auto;
+}
+
+.authpage th {
+}
+
+.authpage td {
+	padding-left: .2em;
+}
+
+.authpage input[type=submit] {
+	margin-top: 2em;
+}

@@ -1,2 +1,1 @@
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css" />
-<script type="text/javascript" src="{{ MEDIA_URL }}js/main.js"></script>

@@ -1,6 +1,6 @@
-{% if formfield.errors %}
-<div class="ausfuellfehler">
+{% if message %}
+<div class="ausfuellfehler error">
 	<span class="zeichen">!</span>
-	{{ formfield.errors }}
+	{% block messagewrap %}{{ message }}{% endblock %}
 </div>
 {% endif %}

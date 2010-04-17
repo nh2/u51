@@ -2,6 +2,7 @@ import os
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.views.generic import list_detail
+from django.contrib.auth.views import login, logout
 from u51.pws.models import Eintrag
 from u51.pws import views, forms
 
@@ -17,8 +18,6 @@ eintraege_main = {
 eintraege_main.update(eintraege)
 
 urlpatterns = patterns('',
-	(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'pws/login.html', 'authentication_form': forms.LoginForm}),
-
 	(r'^$', views.main, {}, 'main'),
 	(r'^edit/$', views.main_update_eintrag, {}, 'update'),
 	(r'^edit/(?P<id>\d+)/$', views.main_update_eintrag, {}, 'edit'),
@@ -29,6 +28,8 @@ urlpatterns = patterns('',
 	(r'^test/edit/(?P<id>\d+)/$', views.eintrag_editor),
 	(r'^test/edit/flat/$', views.eintrag_editor, {'flat': True}),
 	(r'^test/edit/(?P<id>\d+)/flat$', views.eintrag_editor, {'flat': True}),
+
+	(r'^login/$', login, {'template_name': 'pws/login.html', 'authentication_form': forms.LoginForm}, 'login'),
 )
 
 if settings.DEBUG:

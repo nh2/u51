@@ -1,15 +1,11 @@
 $(document).ready(function(){
-	form();
+	errors();
 	liste();
 });
 
-function form() {
-	$('.errorlist').each(function(){
-		var el = $(this);
-		el.hide();
-		var tipel = el.parents('tr').first().find('th').first();
-		var conts = el.html();
-		tipel.qtip({
+function errors() {
+	function errorProperties(conts) {
+		return {
 			content: conts,
 			position: {
 				corner: {
@@ -31,7 +27,14 @@ function form() {
 			show: {
 				delay: 0
 			}
-		});
+		}
+	}
+	$('.errorlist').each(function(){
+		var el = $(this);
+		el.hide();
+		var tipel = el.parents('tr').first().find('th').first();
+		var conts = el.html();
+		tipel.qtip(errorProperties(conts));
 	});
 }
 

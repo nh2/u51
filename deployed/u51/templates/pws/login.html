@@ -1,22 +1,34 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% load ttags %}
+
+{% block extrahead %}
+        {% include "pws/auth.head" %}
+{% endblock %}
 
 {% block content %}
 
-{% if form.errors %}
-<p>Passwort falsch.</p>
-{% endif %}
+<div class="authpage">
 
-<form method="post" action="{% url django.contrib.auth.views.login %}">
-{% csrf_token %}
-<table>
-<tr>
-	<td>{{ form.password.label_tag }}</td>
-	<td>{{ form.password }}</td>
-</tr>
-</table>
+	<form method="post" action="{% url django.contrib.auth.views.login %}">
+	{% csrf_token %}
+	<table>
+	<tr>
+		<th>
+			{{ form.password.label_tag }}
+			{% if form.errors %}
+				{% ausfuellfehler_message _("Passwort falsch.") %}
+			{% endif %}
+		</th>
+	</tr>
+	<tr>
+		<td>{{ form.password }}</td>
+	</tr>
+	</table>
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
+	<input type="submit" value="Login" />
+	<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+</div>
 
 {% endblock %}

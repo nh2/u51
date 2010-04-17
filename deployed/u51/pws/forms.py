@@ -17,43 +17,26 @@ class EintragForm(forms.ModelForm):
 	submit_name = 'create_edit_eintrag'
 
 
+from django.contrib.auth.forms import AuthenticationForm
+
 # single-user version of django.contrib.auth.forms.AuthenticationForm
-class LoginForm(forms.Form):
-
-	password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
-
-	def __init__(self, request=None, *args, **kwargs):
-		"""
-		If request is passed in, the form will validate that cookies are
-		enabled. Note that the request (a HttpRequest object) must have set a
-		cookie with the key TEST_COOKIE_NAME and value TEST_COOKIE_VALUE before
-		running this validation.
-		"""
-		self.request = request
-		self.user_cache = None
-		super(LoginForm, self).__init__(*args, **kwargs)
+class LoginForm(AuthenticationForm):
+	# make username field unrequired because we don't need it for authentication
+	username = forms.CharField(label=_("Username"), required=False, max_length=30)
+	# make password field unrequired because login with an empty shall be possible after installation
+	password = forms.CharField(label=_("Password"), required=False, widget=forms.PasswordInput)
 
 	def clean(self):
 		password = self.cleaned_data.get('password')
 
-		if password:
-			from django.contrib.auth import authenticate
-			self.user_cache = authenticate(password=password)
-			if self.user_cache is None:
-				raise forms.ValidationError(_("Please enter the correct password, case-sensitive."))
+		from django.contrib.auth import authenticate
+		self.user_cache = authenticate(password=password)
+		if self.user_cache is None:
+			raise forms.ValidationError(_("Please enter the correct password, case-sensitive."))
 
-		# TODO: check whether this has moved to its own method in later Django versions (currently 1.1).
+		# TODO: check whether this has moved to its own method in later Django versions (currently 1.2 pre).
 		if self.request:
 			if not self.request.session.test_cookie_worked():
 				raise forms.ValidationError(_("Your Web browser doesn't appear to have cookies enabled. Cookies are required for logging in."))
 
 		return self.cleaned_data
-
-	def get_user_id(self):
-		if self.user_cache:
-			return self.user_cache.id
-		return None
-
-	def get_user(self):
-		return self.user_cache
-

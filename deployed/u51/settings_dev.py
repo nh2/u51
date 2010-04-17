@@ -67,7 +67,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'u51.urls'
 
 TEMPLATE_DIRS = (
-	os.path.join(PROJECT_PATH, 'templates')
+	os.path.join(PROJECT_PATH, 'templates'),
+	os.path.join(PROJECT_PATH, 'templates', 'pws'),
 )
 
 INSTALLED_APPS = (
@@ -88,6 +89,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 LOGIN_URL='/login/'
+LOGIN_REDIRECT_URL='/'
 
 AUTHENTICATION_BACKENDS = ('pws.AuthBackends.SingleBackend',)
 
