@@ -1,2 +1,3 @@
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/liste.css" />
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/filter.css" />
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/logout.css" />

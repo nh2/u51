@@ -2,8 +2,14 @@
 {% block liste %}
 {% if eintrag_list %}
 
-<div class="filterhover">
-	<p>Filter <input type="text" class="listefilter" /></p>
+<div class="logout">
+	<form action="{% url logout %}" method="post" class="logoutform">
+		<input type="submit" name="logout" value="Logout" class="logout_button" title="Logout" />
+	</form>
+</div>
+
+<div class="filter">
+	<p><span>Filter </span><input type="text" class="listefilter" /></p>
 </div>
 
 <table class="liste">

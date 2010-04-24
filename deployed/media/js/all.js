@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	errors();
 	liste();
+	filter();
 });
 
 function errors() {
@@ -38,8 +39,64 @@ function errors() {
 	});
 }
 
+function filter() {
+	function filterProperties(width) {
+		return {
+			content: {
+				text: 'Filter',
+				// TODO find a way to assign multiple target events
+				// instead of using prerender: true
+				prerender: true
+			},
+			position: {
+				corner: {
+					target: 'bottomLeft',
+					tooltip: 'leftTop'
+				},
+				adjust: {
+					y: 5
+				}
+			},
+			style: {
+				border: {
+					color: '#487858',
+					width: 1
+				},
+				color: '#487858',
+				background: 'rgba(224,255,184,0.8)',
+				padding: 0,
+				width: width+2, // + double border width
+				textAlign: 'center',
+				fontSize: '.8em',
+				name: 'green'
+			},
+			show: {
+				delay: 0
+			}
+		}
+	}
+	function showQtipOnText(qtip, text) {
+		if(text.length > 0)
+			qtip.qtip('show');
+		else
+			qtip.qtip('hide');
+	}
+	$('div.filter span').hide();
+	var filterinput = $('.listefilter');
+	var qtip = filterinput.qtip(filterProperties(filterinput.width(), true));
+
+	// filter textbox
+	var table = $('.liste');
+	filterinput.keyup(function() {
+		showQtipOnText(qtip, this.value);
+		$.uiTableFilter(table, this.value);
+	});
+
+	filterinput.focus();
+}
+
 function liste() {
-	var table = $(".liste");
+	var table = $('.liste');
 	var rows = $('tbody tr:not(.empty)', table);
 	var newempty = $('<tr class="empty nofilter"><td /><td /><td /><td /><td /><td /><\/tr>');
 
@@ -52,11 +109,6 @@ function liste() {
 		$('.empty').remove();
 		newempty.insertBefore(rows);
 	});
-
-	// filter textbox
-	$('.listefilter').keyup(function() {
-		$.uiTableFilter(table, this.value);
-	}).focus();
 
 
 	var pws = $('.pw');
