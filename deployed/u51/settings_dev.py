@@ -8,6 +8,9 @@ ADMINS = (
 	# ('Your Name', 'your_email@domain.com'),
 )
 
+import sys, os, user
+sys.path.append(os.path.join(user.home,"src","django","Django-1.2.1"))
+
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
