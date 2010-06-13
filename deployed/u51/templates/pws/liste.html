@@ -2,14 +2,17 @@
 {% block liste %}
 {% if eintrag_list %}
 
-<div class="logout">
+<div class="top right">
+	<form action="{% url settings %}" method="post" class="logoutform">
+		<input type="submit" name="settings" value="Einstellungen" class="settings_button" />
+	</form>
 	<form action="{% url logout %}" method="post" class="logoutform">
-		<input type="submit" name="logout" value="Logout" class="logout_button" title="Logout" />
+		<input type="submit" name="logout" value="Logout" class="logout_button" />
 	</form>
 </div>
 
-<div class="filter">
-	<p><span>Filter </span><input type="text" class="listefilter" /></p>
+<div class="top left">
+	<p class="filter"><span>Filter </span><input type="text" class="listefilter" /></p>
 </div>
 
 <table class="liste">

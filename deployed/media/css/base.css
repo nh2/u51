@@ -33,3 +33,22 @@ textarea {
 
 .ausfuellfehler .errorlist {
 }
+
+div.top {
+	position: fixed;
+	top: 0;
+
+	padding: .4em;
+	color: #487858;
+	font-size: .9em;
+}
+div.top.left {
+	left: 0;
+}
+div.top.right {
+	right: 0;
+}
+
+div.top form {
+	display: inline;
+}

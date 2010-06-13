@@ -2,7 +2,7 @@ import os
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.views.generic import list_detail
-from django.contrib.auth.views import login, logout_then_login
+from django.contrib.auth.views import login, logout_then_login, password_change
 from u51.pws.models import Eintrag
 from u51.pws import views, forms
 
@@ -31,6 +31,7 @@ urlpatterns = patterns('',
 
 	(r'^login/$', login, {'template_name': 'pws/login.html', 'authentication_form': forms.LoginForm}, 'login'),
 	(r'^logout/$', logout_then_login, {}, 'logout'),
+	(r'^settings/$', password_change, {}, 'settings'),
 )
 
 if settings.DEBUG:
