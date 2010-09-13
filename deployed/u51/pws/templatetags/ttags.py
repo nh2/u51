@@ -2,19 +2,19 @@ from django import template
 
 register = template.Library()
 
-from u51.pws.models import Eintrag
-from u51.pws.forms import EintragForm
+from u51.pws.models import Entry
+from u51.pws.forms import EntryForm
 from django.core.urlresolvers import reverse
 
 @register.inclusion_tag('pws/pwlist.html')
 def include_pwlist():
 	return {
-		'eintrag_list': Eintrag.objects.all(),
+		'entry_list': Entry.objects.all(),
 	}
 
 @register.inclusion_tag('pws/pwform-flat.html', takes_context=True)
 def include_pwform(context):
-	pwform = context.get('pwform') or EintragForm()
+	pwform = context.get('pwform') or EntryForm()
 	edit = True if pwform.instance.id else False
 	action = reverse('edit', args=[pwform.instance.id]) if edit else reverse('update')
 	return {
@@ -23,20 +23,20 @@ def include_pwform(context):
 		'action': action,
 	}
 
-@register.inclusion_tag('pws/ausfuellfehler.html')
-def ausfuellfehler(messagewrap):
+@register.inclusion_tag('pws/inputerror.html')
+def inputerror(messagewrap):
 	return {
 		'message': messagewrap,
 	}
 
-@register.inclusion_tag('pws/ausfuellfehler_message.html')
-def ausfuellfehler_message(message):
+@register.inclusion_tag('pws/inputerror_message.html')
+def inputerror_message(message):
 	return {
 		'message': message,
 	}
 
-@register.inclusion_tag('pws/loeschform.html')
-def loeschform(value, text="X", action=""):
+@register.inclusion_tag('pws/deleteform.html')
+def deleteform(value, text="X", action=""):
 	return {
 		'value': value,
 		'text': text,

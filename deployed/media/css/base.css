@@ -24,14 +24,14 @@ textarea {
 	color: #D62222;
 }
 
-.ausfuellfehler {
+.inputerror {
 	display: inline;
 }
 
-.ausfuellfehler .zeichen {
+.inputerror .sign {
 }
 
-.ausfuellfehler .errorlist {
+.inputerror .errorlist {
 }
 
 div.top {

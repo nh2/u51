@@ -1,16 +1,16 @@
-.liste {
+.pwlist {
 	padding: 12px;
 	margin: 0 auto;
 }
 
-.liste table {
+.pwlist table {
 }
 
-.liste th, .liste td {
+.pwlist th, .pwlist td {
 	padding: .2em 1em .3em 1em;
 }
 
-.liste th {
+.pwlist th {
 	text-align: left;
 	font-weight: normal;
 	font-family: "Linux Libertine O C";
@@ -26,32 +26,32 @@ th.headerSortDown {
 	border-color: #e0ffb8;
 }
 
-.liste td {
+.pwlist td {
 	border: solid #94da3a;
 	border-width: 1px 0;
 	background: #e0ffb8;
 }
 
-.liste tr.empty {
+.pwlist tr.empty {
 	height: 12px;
 }
 
-.liste tr.empty td {
+.pwlist tr.empty td {
 	border: 0;
 	visibility: hidden;
 }
 
-.liste .td_loeschform {
+.pwlist .td_deleteform {
 	padding: 0 1em;
 }
 
-.loeschform input[type=submit] {
+.deleteform input[type=submit] {
 	border: 0;
 	background: none;
 	color: #487858;
 	width: 1.5em;
 }
-.loeschform input[type=submit]:hover {
+.deleteform input[type=submit]:hover {
 	color: #000;
 }
 
@@ -59,7 +59,7 @@ th.headerSortDown {
 	text-align: center;
 }
 
-.liste div.extra {
+.pwlist div.extra {
 	max-width: 20em;
 }
 

@@ -17,7 +17,7 @@
 		<th>
 			{{ form.password.label_tag }}
 			{% if form.errors %}
-				{% ausfuellfehler_message _("Passwort falsch.") %}
+				{% inputerror_message _("Passwort falsch.") %}
 			{% endif %}
 		</th>
 	</tr>

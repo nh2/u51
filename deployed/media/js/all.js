@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	errors();
-	liste();
+	pwlist();
 	filter();
 });
 
@@ -82,11 +82,11 @@ function filter() {
 			qtip.qtip('hide');
 	}
 	$('.filter span').hide();
-	var filterinput = $('.listefilter');
+	var filterinput = $('.pwlistfilter');
 	var qtip = filterinput.qtip(filterProperties(filterinput.width(), true));
 
 	// filter textbox
-	var table = $('.liste');
+	var table = $('.pwlist');
 	filterinput.keyup(function() {
 		showQtipOnText(qtip, this.value);
 		$.uiTableFilter(table, this.value);
@@ -95,8 +95,8 @@ function filter() {
 	filterinput.focus();
 }
 
-function liste() {
-	var table = $('.liste');
+function pwlist() {
+	var table = $('.pwlist');
 	var rows = $('tbody tr:not(.empty)', table);
 	var newempty = $('<tr class="empty nofilter"><td /><td /><td /><td /><td /><td /><\/tr>');
 
@@ -171,12 +171,12 @@ $.fn.trSlideUp = function(speed, callback) {
 }
 
 	// AJAX deletion
-	$('form.loeschform').submit(function(){ return false });
-	$('.loesch_button').click(function(){
+	$('form.deleteform').submit(function(){ return false });
+	$('.delete_button').click(function(){
 		var button = $(this);
 		var tr = button.parents('tr');
 		var empty = tr.prev('.empty');
-		$.post("/delete/", button.parents('.loeschform').serialize(), function(json){
+		$.post("/delete/", button.parents('.deleteform').serialize(), function(json){
 			if(json['success']) {
 				tr.css('background-color', tr.children(':first').css('background-color'));
 				tr.children().fadeOut('fast', function(){

@@ -1,6 +1,6 @@
 {% load ttags %}
-{% block liste %}
-{% if eintrag_list %}
+{% block pwlist %}
+{% if entry_list %}
 
 <div class="top right">
 	<form action="{% url settings %}" method="post" class="logoutform">
@@ -12,10 +12,10 @@
 </div>
 
 <div class="top left">
-	<p class="filter"><span>Filter </span><input type="text" class="listefilter" /></p>
+	<p class="filter"><span>Filter </span><input type="text" class="pwlistfilter" /></p>
 </div>
 
-<table class="liste">
+<table class="pwlist">
 	<thead>
 	<tr>
 		<th>Wo</th>
@@ -27,17 +27,17 @@
 	</tr>
 	</thead>
 	<tbody>
-	{% for eintrag in eintrag_list %}
+	{% for entry in entry_list %}
 	<!-- multiple tds needed for tablesorter to work -->
 	<tr class="empty nofilter"><td /><td /><td /><td /><td /><td /></tr>
 	<tr>
-		<td><a href="/edit/{{eintrag.id}}">{{ eintrag.name }}</a></td>
-		<td>{{ eintrag.user }}</td>
-		<td>{{ eintrag.email }}</td>
-		<td class="pw showonhover">{{ eintrag.pw }}</td>
-		<td><div class="extra">{{ eintrag.extra }}</div></td>
-		<td>{{ eintrag.eingetragen|date:"d.m.Y" }}</td>
-		<td class="td_loeschform">{% loeschform eintrag.id "X" "/delete/" %}</td><!-- TODO check url() -->
+		<td><a href="/edit/{{entry.id}}">{{ entry.name }}</a></td>
+		<td>{{ entry.user }}</td>
+		<td>{{ entry.email }}</td>
+		<td class="pw showonhover">{{ entry.pw }}</td>
+		<td><div class="extra">{{ entry.extra }}</div></td>
+		<td>{{ entry.eingetragen|date:"d.m.Y" }}</td>
+		<td class="td_deleteform">{% deleteform entry.id "X" "/delete/" %}</td><!-- TODO check url() -->
 	</tr>
 	{% endfor %}
 	</tbody>
