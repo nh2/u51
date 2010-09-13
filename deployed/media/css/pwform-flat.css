@@ -2,6 +2,10 @@
 	padding: .2em;
 }
 
+th {
+	cursor: default;
+}
+
 .left th {
 	text-align: right;
 	vertical-align: top;
