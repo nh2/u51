@@ -3,17 +3,24 @@ from django import template
 register = template.Library()
 
 from u51.pws.models import Eintrag
+from u51.pws.forms import EintragForm
+from django.core.urlresolvers import reverse
 
-@register.inclusion_tag('pws/liste.html')
-def include_liste():
+@register.inclusion_tag('pws/pwlist.html')
+def include_pwlist():
 	return {
 		'eintrag_list': Eintrag.objects.all(),
 	}
 
-@register.inclusion_tag('pws/form-flat.html', takes_context=True)
-def include_form(context):
+@register.inclusion_tag('pws/pwform-flat.html', takes_context=True)
+def include_pwform(context):
+	pwform = context.get('pwform') or EintragForm()
+	edit = True if pwform.instance.id else False
+	action = reverse('edit', args=[pwform.instance.id]) if edit else reverse('update')
 	return {
-		'form': context['form'],
+		'pwform': pwform,
+		'edit': edit,
+		'action': action,
 	}
 
 @register.inclusion_tag('pws/ausfuellfehler.html')

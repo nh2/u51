@@ -2,12 +2,12 @@
 {% load ttags %}
 
 {% block extrahead %}
-	{% include "pws/form-flat.head" %}
-	{% include "pws/liste.head" %}
+	{% include "pws/pwform-flat.head" %}
+	{% include "pws/pwlist.head" %}
 	{% include "pws/main.head" %}
 {% endblock %}
 
 {% block content %}
-	{% include_form %}
-	{% include_liste %}
+	{% include_pwform %}
+	{% include_pwlist %}
 {% endblock %}

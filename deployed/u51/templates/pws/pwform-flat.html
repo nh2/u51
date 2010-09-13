@@ -1,0 +1,25 @@
+{% load ttags %}
+{% block pwform %}
+	<form action="{{ action }}" method="post" class="form">
+		<table>
+			<tr>
+				<td class="formcontrol left">
+					<table>
+						<tr><th>{{ pwform.name.label_tag }}{% ausfuellfehler pwform.name.errors %}</th><td>{{ pwform.name }}</td></tr>
+						<tr><th>{{ pwform.user.label_tag }}{% ausfuellfehler pwform.user.errors %}</th><td>{{ pwform.user }}</td></tr>
+						<tr><th>{{ pwform.pw.label_tag }}{% ausfuellfehler pwform.pw.errors %}</th><td>{{ pwform.pw }}</td></tr>
+						<tr><th>{{ pwform.email.label_tag }}{% ausfuellfehler pwform.email.errors %}</th><td>{{ pwform.email }}</td></tr>
+					</table>
+				</td>
+				<td class="formcontrol right">
+					<table>
+						<tr><td>{{ pwform.extra }}</td><th>{% ausfuellfehler pwform.extra.errors %}{{ pwform.extra.label_tag }}{{ pwform.extra.errors }}</th></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 class="td_submit"><input type="submit" name="{{ pwform.submit_name }}" value="{% if edit %}Änderungen speichern{% else %}Hinzufügen{% endif %}" /></td>
+			</tr>
+		</table>
+	</form>
+{% endblock %}

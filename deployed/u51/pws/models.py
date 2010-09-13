@@ -11,6 +11,3 @@ class Eintrag(models.Model):
 
 	class Meta:
 		ordering = ['name']
-
-	def bla(self):
-		print "bla"
