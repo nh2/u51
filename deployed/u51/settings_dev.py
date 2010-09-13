@@ -9,7 +9,7 @@ ADMINS = (
 )
 
 import sys, os, user
-sys.path.append(os.path.join(user.home,"src","django","Django-1.2.1"))
+sys.path.insert(0, os.path.join(user.home,"src","django","django-1.2.x"))
 
 MANAGERS = ADMINS
 
