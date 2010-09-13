@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 	(r'^$', views.main, {}, 'main'),
 	(r'^edit/$', views.update_entry, {}, 'update'),
 	(r'^edit/(?P<id>\d+)/$', views.update_entry, {}, 'edit'),
-	(r'^delete/$', views.delete_entry),
+	(r'^delete/$', views.delete_entry, {}, 'delete'),
 
 	(r'^test/pwlist/$', list_detail.object_list, eintraege, 'pwlist'),
 	

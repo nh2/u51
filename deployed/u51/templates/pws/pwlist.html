@@ -39,7 +39,8 @@
 		<td class="pw showonhover">{{ entry.pw }}</td>
 		<td><div class="extra">{{ entry.extra }}</div></td>
 		<td>{{ entry.eingetragen|date:"d.m.Y" }}</td>
-		<td class="td_deleteform">{% deleteform entry.id "X" "/delete/" %}</td><!-- TODO check url() -->
+		{% url delete as delete_url %}
+		<td class="td_deleteform">{% deleteform entry.id "X" delete_url %}</td>
 	</tr>
 	{% endfor %}
 	</tbody>
