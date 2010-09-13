@@ -176,7 +176,7 @@ $.fn.trSlideUp = function(speed, callback) {
 		var button = $(this);
 		var tr = button.parents('tr');
 		var empty = tr.prev('.empty');
-		$.post("/delete/", button.parents('.deleteform').serialize(), function(json){
+		$.post("/delete/", button.parents('.deleteform').serialize(), function(json){ // TODO url()
 			if(json['success']) {
 				tr.css('background-color', tr.children(':first').css('background-color'));
 				tr.children().fadeOut('fast', function(){
