@@ -2,17 +2,6 @@
 {% block pwlist %}
 {% if entry_list %}
 
-<div class="top right">
-	<form action="{% url settings %}" method="post" class="logoutform">
-		{% csrf_token %}
-		<input type="submit" name="settings" value="Einstellungen" class="settings_button" />
-	</form>
-	<form action="{% url logout %}" method="post" class="logoutform">
-		{% csrf_token %}
-		<input type="submit" name="logout" value="Logout" class="logout_button" />
-	</form>
-</div>
-
 <div class="top left">
 	<p class="filter"><span>Filter </span><input type="text" class="pwlistfilter" /></p>
 </div>
