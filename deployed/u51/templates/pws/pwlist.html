@@ -4,9 +4,11 @@
 
 <div class="top right">
 	<form action="{% url settings %}" method="post" class="logoutform">
+		{% csrf_token %}
 		<input type="submit" name="settings" value="Einstellungen" class="settings_button" />
 	</form>
 	<form action="{% url logout %}" method="post" class="logoutform">
+		{% csrf_token %}
 		<input type="submit" name="logout" value="Logout" class="logout_button" />
 	</form>
 </div>

@@ -1,6 +1,7 @@
 {% load ttags %}
 {% block pwform %}
 	<form action="{{ action }}" method="post" class="pwform">
+		{% csrf_token %}
 		<table>
 			<tr>
 				<td class="formcontrol left">

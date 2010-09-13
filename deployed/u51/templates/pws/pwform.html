@@ -1,5 +1,6 @@
 {% block pwform %}
 	<form action="" method="post" class="pwform">
+		{% csrf_token %}
 		<table>
 			{{ pwform.as_table }}
 			<tr>

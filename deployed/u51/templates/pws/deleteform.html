@@ -1,4 +1,5 @@
 <form action="{{ action }}" method="post" class="deleteform">
+	{% csrf_token %}
 	<input type="hidden" name="delete_id" value="{{ value }}" class="delete_id" />
 	<input type="submit" name="delete_entry" value="{{ text }}" class="delete_button" title="Löschen" />
 </form>
