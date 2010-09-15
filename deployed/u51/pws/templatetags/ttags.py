@@ -43,10 +43,10 @@ def inputerror_message(message):
 	}
 
 @register.inclusion_tag('pws/deleteform.html')
-def deleteform(value, text="X", action=reverse('delete')):
+def deleteform(delete_id, delete_text="X", action=reverse('delete')):
 	return {
-		'value': value,
-		'text': text,
+		'delete_id': delete_id,
+		'delete_text': delete_text,
 		'action': action,
 	}
 
