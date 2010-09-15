@@ -37,5 +37,5 @@ urlpatterns = patterns('',
 if settings.DEBUG:
 	from django.views.static import serve
 	urlpatterns += patterns('',
-		(r'^media/(.*)$', serve, {'document_root': os.path.join(settings.PROJECT_PATH, '..', 'media')}),
+		(r'^media/(.*)$', serve, {'document_root': os.path.join(settings.PROJECT_ROOT, '..', 'media')}),
 	)
