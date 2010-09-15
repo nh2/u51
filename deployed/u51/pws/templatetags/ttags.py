@@ -1,10 +1,17 @@
 from django import template
+from templatetag_sugar.register import tag
+from templatetag_sugar.parser import *
 
 register = template.Library()
 
 from u51.pws.models import Entry
 from u51.pws.forms import EntryForm
 from django.core.urlresolvers import reverse
+
+@tag(register, [Variable(), Constant("as"), Name()])
+def empty_password(context, user, asvar):
+	context[asvar] = user.check_password('')
+	return ""
 
 @register.inclusion_tag('pws/pwlist.html')
 def include_pwlist():
@@ -42,3 +49,4 @@ def deleteform(value, text="X", action=""):
 		'text': text,
 		'action': action,
 	}
+

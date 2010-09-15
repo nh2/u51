@@ -17,7 +17,15 @@ class EntryForm(forms.ModelForm):
 	submit_name = 'create_edit_entry'
 
 
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import PasswordChangeForm, AuthenticationForm
+
+class OptionalPasswordChangeForm(PasswordChangeForm):
+	"""
+	Password change form that allows empty passwords.
+	"""
+	new_password1 = forms.CharField(required=False, label=_("New password"), widget=forms.PasswordInput)
+	new_password2 = forms.CharField(required=False, label=_("New password confirmation"), widget=forms.PasswordInput)
+	old_password = forms.CharField(required=False, label=_("Old password"), widget=forms.PasswordInput)
 
 # single-user version of django.contrib.auth.forms.AuthenticationForm
 class LoginForm(AuthenticationForm):
