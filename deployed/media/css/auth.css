@@ -10,13 +10,15 @@
 	margin: 0 auto;
 }
 
-.authpage th {
+.authpage input {
+	margin-top: .3em;
+	margin-bottom: .8em;
 }
 
 .authpage td {
 	padding-left: .2em;
 }
 
-.authpage input[type=submit] {
-	margin-top: 2em;
+.authpage input[type=submit], .authpage input[type=button] {
+	margin-top: 1.2em;
 }
