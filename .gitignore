@@ -5,3 +5,5 @@
 
 *.pyc
 *.sqlite
+
+deployed/u51/templatetag_sugar
