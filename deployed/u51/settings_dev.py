@@ -9,7 +9,8 @@ ADMINS = (
 )
 
 import sys, os, user
-sys.path.insert(0, os.path.join(user.home,"src","django","django-1.2.x"))
+# Appending django do the end so that you can use another version via PYTHONPATH
+sys.path.append(os.path.join(user.home,"src","django","django-1.2.x"))
 
 MANAGERS = ADMINS
 
