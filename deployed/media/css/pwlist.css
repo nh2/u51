@@ -32,6 +32,10 @@ th.headerSortDown {
 	background: #e0ffb8;
 }
 
+.pwlist .unixtime {
+	display: none;
+}
+
 .pwlist tr.empty {
 	height: 12px;
 }

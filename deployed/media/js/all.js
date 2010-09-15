@@ -103,7 +103,9 @@ function pwlist() {
 	$('thead th', table).attr('title','Sortieren');
 
 	// table sorting
-	table.tablesorter({ sortList: [[0,0]] });
+	table.tablesorter({
+		sortList: [[0,0]]
+	});
 	table.bind('sortStart',function() {
 	}).bind('sortEnd',function() {
 		$('.empty').remove();

@@ -1,13 +1,16 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 class Entry(models.Model):
-	name = models.CharField(max_length=200,unique=True)
-	user = models.CharField(max_length=200)
-	pw = models.CharField('Passwort', max_length=200)
-	email = models.EmailField()
-	extra = models.TextField(blank=True)
-	eingetragen = models.DateField(auto_now=True)
-	geaendert = models.DateField(auto_now_add=True)
+	name = models.CharField(_('Where'), max_length=200,unique=True)
+	user = models.CharField(_('User name'), max_length=200)
+	pw = models.CharField(_('Password'), max_length=200)
+	email = models.EmailField(_('Email'), )
+	extra = models.TextField(_('Extra info'), blank=True)
+	eingetragen = models.DateField(_('Created'), auto_now=True)
+	geaendert = models.DateField(_('Changed'), auto_now_add=True)
 
 	class Meta:
 		ordering = ['name']
+		verbose_name = _('Entry')
+		verbose_name_plural = _('Entries')

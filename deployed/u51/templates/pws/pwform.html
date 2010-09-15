@@ -1,3 +1,4 @@
+{% load i18n %}
 {% block pwform %}
 	<form action="" method="post" class="pwform">
 		{% csrf_token %}
@@ -5,7 +6,7 @@
 			{{ pwform.as_table }}
 			<tr>
 				<td />
-				<td><input type="submit" value="Hinzufügen" /></td>
+				<td><input type="submit" value="{% trans "Add" %}" /></td>
 			</tr>
 		</table>
 	</form>
