@@ -23,3 +23,6 @@ def get_or_create_default_user():
 		user.set_password('')
 		user.save()
 		return user
+
+def password_set():
+	return not get_or_create_default_user().check_password('')
