@@ -7,8 +7,8 @@ class Entry(models.Model):
 	pw = models.CharField(_('Password'), max_length=200)
 	email = models.EmailField(_('Email'), )
 	extra = models.TextField(_('Extra info'), blank=True)
-	eingetragen = models.DateField(_('Created'), auto_now=True)
-	geaendert = models.DateField(_('Changed'), auto_now_add=True)
+	created = models.DateField(_('Created'), auto_now=True)
+	modified = models.DateField(_('Changed'), auto_now_add=True)
 
 	class Meta:
 		ordering = ['name']

@@ -29,8 +29,8 @@
 		<td class="pw showonhover">{{ entry.pw }}</td>
 		<td><div class="extra">{{ entry.extra }}</div></td>
 		<td>
-			<span class="unixtime">{{ entry.eingetragen|date:"U" }}</span>
-			<span class="humantime">{{ entry.eingetragen|date:"SHORT_DATE_FORMAT" }}</a>
+			<span class="unixtime">{{ entry.created|date:"U" }}</span>
+			<span class="humantime">{{ entry.created|date:"SHORT_DATE_FORMAT" }}</a>
 		</td>
 		{% url delete as delete_url %}
 		<td class="td_deleteform">{% deleteform entry.id "X" delete_url %}</td>
