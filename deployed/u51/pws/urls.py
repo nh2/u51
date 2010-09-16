@@ -1,6 +1,5 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.views.generic import list_detail
 from u51.pws.models import Entry
 from u51.pws import views, forms

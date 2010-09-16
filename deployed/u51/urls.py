@@ -1,6 +1,5 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.views.generic import list_detail
 from django.contrib.auth.views import login, logout_then_login, password_change, password_change_done
 from u51.pws import forms
