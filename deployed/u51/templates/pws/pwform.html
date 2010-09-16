@@ -6,7 +6,7 @@
 			{{ pwform.as_table }}
 			<tr>
 				<td />
-				<td><input type="submit" value="{% trans "Add" %}" /></td>
+				<td><input type="submit" value="{% if edit %}{% trans "Save changes" %}{% else %}{% trans "Add" %}{% endif %}" /></td>
 			</tr>
 		</table>
 	</form>
