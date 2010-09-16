@@ -92,6 +92,8 @@ function filter() {
 		$.uiTableFilter(table, this.value);
 	});
 
+	filterinput.parents('div:first').submit(function(){ return false });
+
 	filterinput.focus();
 }
 

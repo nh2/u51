@@ -7,16 +7,20 @@ register = template.Library()
 from u51.pws.models import Entry
 from u51.pws.forms import EntryForm
 from django.core.urlresolvers import reverse
+from django.db.models import Q
 
 @tag(register, [Variable(), Constant("as"), Name()])
 def empty_password(context, user, asvar):
 	context[asvar] = user.check_password('')
 	return ""
 
-@register.inclusion_tag('pws/pwlist.html')
-def include_pwlist():
+@register.inclusion_tag('pws/pwlist.html', takes_context=True)
+def include_pwlist(context):
+	f = context['entry_filter']
+	entries = Entry.objects.filter(Q(name__contains=f) | Q(user__contains=f) | Q(email__contains=f) | Q(extra__contains=f)) if f else Entry.objects.all()
 	return {
-		'entry_list': Entry.objects.all(),
+		'entry_list': entries,
+		'entry_filter': f,
 	}
 
 @register.inclusion_tag('pws/pwform-flat.html', takes_context=True)

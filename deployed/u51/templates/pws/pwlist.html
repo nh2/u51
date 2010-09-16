@@ -1,12 +1,22 @@
 {% load ttags %}
 {% load i18n %}
 {% block pwlist %}
-{% if entry_list %}
 
+{% if entry_list or entry_filter %}
 <div class="top left">
-	<p class="filter"><span>Filter </span><input type="text" class="pwlistfilter" /></p>
+	<form method="get" action="{% url main %}">
+		<p class="filter">
+			<span>Filter </span>
+			<input type="text" name="filter" value="{{ entry_filter|default:"" }}" class="pwlistfilter" autocomplete="off" />
+			{% if entry_filter %}
+			<a href="{% url main %}" class="clear_filter">clear</a>
+			{% endif %}
+		</p>
+	</form>
 </div>
+{% endif %}
 
+{% if entry_list %}
 <table class="pwlist">
 	<thead>
 	<tr>
