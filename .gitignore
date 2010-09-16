@@ -6,6 +6,8 @@
 *.pyc
 *.sqlite
 
+*.local*
+
 secret.key
 
 deployed/u51/templatetag_sugar
