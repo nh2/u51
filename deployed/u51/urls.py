@@ -21,10 +21,10 @@ urlpatterns = patterns('',
 	(r'^delete/$', views.delete_entry, {}, 'delete'),
 
 	(r'^test/pwlist/$', list_detail.object_list, eintraege, 'pwlist'),
-	
+
 	(r'^test/edit/$', views.update_entry, {'next': 'test-edit', 'template': 'pws/pwform.html'}, 'test-update'),
 	(r'^test/edit/(?P<id>\d+)/$', views.update_entry, {'next': 'test-edit', 'template': 'pws/pwform.html'}, 'test-edit'),
-	
+
 	(r'^test/edit/flat/$', views.update_entry, {'next': 'test-edit-flat', 'template': 'pws/pwform-flat.html'}, 'test-update-flat'),
 	(r'^test/edit/(?P<id>\d+)/flat/$', views.update_entry, {'next': 'test-edit-flat', 'template': 'pws/pwform-flat.html'}, 'test-edit-flat'),
 
