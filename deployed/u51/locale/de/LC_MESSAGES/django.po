@@ -1,0 +1,121 @@
+# German translation of u51.
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: u51\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-16 18:01+0200\n"
+"PO-Revision-Date: 2010-09-16 16:57+0200\n"
+"Last-Translator: Niklas Hambüchen <nh2@deditus.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: pws/forms.py:26
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: pws/forms.py:27
+msgid "New password confirmation"
+msgstr "Neues Passwort bestätigen"
+
+#: pws/forms.py:28
+msgid "Old password"
+msgstr "Altes Passwort"
+
+#: pws/forms.py:33 templates/pws/pwlist.html:14
+msgid "User name"
+msgstr "Benutzername"
+
+#: pws/forms.py:35 pws/models.py:7 templates/pws/pwlist.html:16
+msgid "Password"
+msgstr "Passwort"
+
+#: pws/forms.py:43
+msgid "Please enter the correct password, case-sensitive."
+msgstr ""
+"Bitte das richtige Passwort unter unter Berücksichtigung von Groß- und "
+"Kleinschreibung eingeben."
+
+#: pws/forms.py:48
+msgid ""
+"Your Web browser doesn't appear to have cookies enabled. Cookies are "
+"required for logging in."
+msgstr ""
+"Der Webbrowser scheint keine Cookies aktiviert zu haben. Cookies sind für "
+"die Anmeldung zwingend erforderlich."
+
+#: pws/models.py:5 templates/pws/pwlist.html:13
+msgid "Where"
+msgstr "Wo"
+
+#: pws/models.py:6
+msgid "User"
+msgstr "Benutzer"
+
+#: pws/models.py:8 templates/pws/pwlist.html:15
+msgid "Email"
+msgstr "E-Mail"
+
+#: pws/models.py:9 templates/pws/pwlist.html:17
+msgid "Extra info"
+msgstr "Extra-Info"
+
+#: pws/models.py:10 templates/pws/pwlist.html:18
+msgid "Created"
+msgstr "Angelegt"
+
+#: pws/models.py:11
+msgid "Changed"
+msgstr "Geändert"
+
+#: pws/models.py:15
+msgid "Entry"
+msgstr "Eintrag"
+
+#: pws/models.py:16
+msgid "Entries"
+msgstr "Einträge"
+
+#: templates/pws/controls.html:6
+msgid "Logout"
+msgstr "Logout"
+
+#: templates/pws/deleteform.html:5
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/pws/login.html:22
+msgid "Wrong password."
+msgstr "Passwort falsch."
+
+#: templates/pws/login.html:32
+msgid "Login"
+msgstr "Login"
+
+#: templates/pws/pwform-flat.html:23
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: templates/pws/pwform-flat.html:23 templates/pws/pwform.html:9
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: templates/pws/pwlist.html:42
+msgid "No entries."
+msgstr "Keine Einträge vorhanden."
+
+#: templates/settings/password_change_done.html:12
+msgid "Password changed."
+msgstr "Passwort geändert."
+
+#: templates/settings/password_change_done.html:13
+msgid "Back"
+msgstr "Zurück."
+
+#: templates/settings/password_change_form.html:52
+msgid "Save"
+msgstr "Speichern"
