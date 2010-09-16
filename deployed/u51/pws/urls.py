@@ -4,8 +4,6 @@ from django.views.generic import list_detail
 from u51.pws.models import Entry
 from u51.pws import views, forms
 
-# admin.autodiscover()
-
 urlpatterns = patterns('',
 	(r'^$', views.main, {}, 'main'),
 	(r'^edit/$', views.update_entry, {}, 'update'),
