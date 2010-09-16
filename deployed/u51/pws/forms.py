@@ -30,7 +30,7 @@ class OptionalPasswordChangeForm(PasswordChangeForm):
 # single-user version of django.contrib.auth.forms.AuthenticationForm
 class LoginForm(AuthenticationForm):
 	# make username field unrequired because we don't need it for authentication
-	username = forms.CharField(label=_("Username"), required=False, max_length=30)
+	username = forms.CharField(label=_("User name"), required=False, max_length=30)
 	# make password field unrequired because login with an empty shall be possible after installation
 	password = forms.CharField(label=_("Password"), required=False, widget=forms.PasswordInput)
 
