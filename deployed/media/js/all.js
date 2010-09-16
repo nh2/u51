@@ -65,7 +65,7 @@ function filter() {
 				color: '#487858',
 				background: 'rgba(224,255,184,0.8)',
 				padding: 0,
-				width: width+2, // + double border width
+				width: width + 2, // double border width
 				textAlign: 'center',
 				fontSize: '.8em',
 				name: 'green'
