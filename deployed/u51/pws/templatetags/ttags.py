@@ -21,13 +21,10 @@ def include_pwlist():
 
 @register.inclusion_tag('pws/pwform-flat.html', takes_context=True)
 def include_pwform(context):
-	pwform = context.get('pwform') or EntryForm()
-	edit = True if pwform.instance.id else False
-	action = reverse('edit', args=[pwform.instance.id]) if edit else reverse('update')
 	return {
-		'pwform': pwform,
-		'edit': edit,
-		'action': action,
+		'pwform': context.get('pwform', EntryForm()),
+		'edit': context.get('edit', False),
+		'action': context.get('action', reverse('update')),
 	}
 
 @register.inclusion_tag('pws/inputerror.html')
