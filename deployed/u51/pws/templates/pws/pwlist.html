@@ -40,7 +40,7 @@
 		<td><div class="extra">{{ entry.extra }}</div></td>
 		<td>
 			<span class="unixtime">{{ entry.created|date:"U" }}</span>
-			<span class="humantime">{{ entry.created|date:"SHORT_DATE_FORMAT" }}</a>
+			<span class="humantime">{{ entry.created|date:"SHORT_DATE_FORMAT" }}</span>
 		</td>
 		{% url delete as delete_url %}
 		<td class="td_deleteform">{% deleteform entry.id "X" delete_url %}</td>
