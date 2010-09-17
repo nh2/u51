@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 
-class SingleBackend:
+class SingleUserBackend:
 	"""
 	Authenticate against only one user defined in settings.LOGIN_USER.
 	"""
