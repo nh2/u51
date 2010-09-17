@@ -1,0 +1,45 @@
+# German translation of u51 JavaScript files.
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: u51\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-17 19:35+0200\n"
+"PO-Revision-Date: 2010-09-16 16:57+0200\n"
+"Last-Translator: Niklas Hambüchen <nh2@deditus.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: media/js/copytoclipboard.js:8
+msgid "Copy to clipboard failed because your browser prevents it.\n"
+msgstr ""
+"Das Kopieren in die Zwischenablage ist fehlgeschlagen, weil Ihr Browser es "
+"nicht erlaubt.\n"
+
+#: media/js/copytoclipboard.js:9
+#, perl-format
+msgid ""
+"For Mozilla Firefox, go to about:config and set the value of %s to 'true'."
+msgstr ""
+"Wenn Sie Mozilla Firefox benutzen, rufen Sie die Seite about:config auf und "
+"setzen Sie den Wert %s auf 'true'."
+
+#: pws/media/pws/js/all.js:46
+msgid "Filter"
+msgstr "Filter"
+
+#: pws/media/pws/js/all.js:104
+msgid "Sort"
+msgstr "Sortieren"
+
+#: pws/media/pws/js/all.js:128
+msgid "Copy"
+msgstr "Kopieren"
+
+#: pws/media/pws/js/all.js:129
+msgid "Show"
+msgstr "Zeigen"
