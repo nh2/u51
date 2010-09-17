@@ -80,7 +80,7 @@ msgstr "Eintrag"
 msgid "Entries"
 msgstr "Einträge"
 
-#: templates/pws/controls.html:6
+#: templates/controls.html:6
 msgid "Logout"
 msgstr "Logout"
 
@@ -88,11 +88,11 @@ msgstr "Logout"
 msgid "Delete"
 msgstr "Löschen"
 
-#: templates/pws/login.html:22
+#: templates/login.html:22
 msgid "Wrong password."
 msgstr "Passwort falsch."
 
-#: templates/pws/login.html:32
+#: templates/login.html:32
 msgid "Login"
 msgstr "Login"
 

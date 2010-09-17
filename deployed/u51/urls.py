@@ -9,7 +9,7 @@ from tools.forms import SingleUserLoginForm, OptionalPasswordChangeForm
 urlpatterns = patterns('',
 	(r'^', include('u51.pws.urls')),
 
-	(r'^login/$', login, {'template_name': 'pws/login.html', 'authentication_form': SingleUserLoginForm}, 'login'),
+	(r'^login/$', login, {'template_name': 'login.html', 'authentication_form': SingleUserLoginForm}, 'login'),
 	(r'^logout/$', logout_then_login, {}, 'logout'),
 	(r'^settings/$', password_change, {'template_name': 'settings/password_change_form.html', 'password_change_form': OptionalPasswordChangeForm, 'post_change_redirect': '/settings/password_change_done/'}, 'settings'),
 	(r'^settings/password_change_done/$', password_change_done, {'template_name': 'settings/password_change_done.html'}),
