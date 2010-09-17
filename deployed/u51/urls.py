@@ -19,5 +19,5 @@ if settings.DEBUG:
 	from django.views.static import serve
 	import os
 	urlpatterns += patterns('',
-		(r'^media/(.*)$', serve, {'document_root': os.path.join(settings.PROJECT_ROOT, '..', 'media')}),
+		(r'^media/(.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 	)
