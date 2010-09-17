@@ -13,4 +13,4 @@ class EntryForm(forms.ModelForm):
 		self.fields['extra'].widget.attrs = {'cols': 24, 'rows': 5}
 		self.fields['pw'].widget = forms.PasswordInput(render_value=True, attrs={'autocomplete': 'off'})
 
-	submit_name = 'create_edit_entry'
+	submit_name = 'update_entry'
