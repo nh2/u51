@@ -89,7 +89,8 @@ INSTALLED_APPS = (
 	'staticfiles',
 	'templatetag_sugar',
 
-	'u51.pws',
+	'u51', # needed for JS translations (javascript_catalog)
+	'pws',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
