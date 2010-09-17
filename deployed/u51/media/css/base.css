@@ -1,5 +1,5 @@
 @import url("/media/css/resets.css");
-@import url("/media/css/font-linux-libertine.css");
+@import url("/media/css/fonts/linux-libertine.css");
 
 body {
 	font-family: "Linux Libertine O",serif;
