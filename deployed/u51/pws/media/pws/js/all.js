@@ -142,7 +142,7 @@ function pwlist() {
 		menu.children('.actions').fadeIn('fast');
 	}
 
-	function hide() { 
+	function hide() {
 		var menu = $(this);
 		menu.children('.actions').fadeOut('fast');
 	}
@@ -191,4 +191,3 @@ $.fn.trSlideUp = function(speed, callback) {
 		}, 'json');
 	});
 }
-
