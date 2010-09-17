@@ -16,8 +16,5 @@ urlpatterns = patterns('',
 )
 
 if settings.DEBUG:
-	from django.views.static import serve
-	import os
-	urlpatterns += patterns('',
-		(r'^media/(.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
-	)
+	from staticfiles.urls import staticfiles_urlpatterns
+	urlpatterns += staticfiles_urlpatterns()
