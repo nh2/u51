@@ -105,7 +105,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 LOGIN_URL='/login/'
 LOGIN_REDIRECT_URL='/'
 
-AUTHENTICATION_BACKENDS = ('pws.AuthBackends.SingleBackend',)
+AUTHENTICATION_BACKENDS = ('tools.AuthBackends.SingleBackend',)
 
 # for a simple one-user auth system
 LOGIN_USER='user'
