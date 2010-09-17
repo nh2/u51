@@ -43,7 +43,7 @@ function filter() {
 	function filterProperties(width) {
 		return {
 			content: {
-				text: 'Filter',
+				text: gettext('Filter'),
 				// TODO find a way to assign multiple target events
 				// instead of using prerender: true
 				prerender: true
@@ -102,7 +102,7 @@ function pwlist() {
 	var rows = $('tbody tr:not(.empty)', table);
 	var newempty = $('<tr class="empty nofilter"><td /><td /><td /><td /><td /><td /><\/tr>');
 
-	$('thead th', table).attr('title','Sortieren');
+	$('thead th', table).attr('title',gettext('Sort'));
 
 	// table sorting
 	table.tablesorter({
@@ -129,8 +129,8 @@ function pwlist() {
 		<div class="pwmenu">\
 			<p class="pwfield">•••••</p>\
 			<ul class="actions">\
-				<li class="copy">Kopieren</li>\
-				<li class="show">Zeigen</li>\
+				<li class="copy">'+gettext('Copy')+'</li>\
+				<li class="show">'+gettext('Show')+'</li>\
 			</ul>\
 		</div>\
 	').appendTo(pws);
