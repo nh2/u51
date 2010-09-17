@@ -16,7 +16,7 @@ def empty_password(context, user, asvar):
 
 @register.inclusion_tag('pws/pwlist.html', takes_context=True)
 def include_pwlist(context):
-	f = context['entry_filter']
+	f = context.get('entry_filter')
 	entries = Entry.objects.filter(Q(name__contains=f) | Q(user__contains=f) | Q(email__contains=f) | Q(extra__contains=f)) if f else Entry.objects.all()
 	return {
 		'entry_list': entries,
