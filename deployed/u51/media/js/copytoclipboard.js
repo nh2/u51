@@ -5,7 +5,10 @@ function copyToClipboard(text) {
 try {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
 } catch(e) {
-	alert("Kopieren in die Zwischenablage nicht erlaubt. In Firefox muss unter about:config der Wert signed.applets.codebase_principal_support auf 'true' gesetzt sein.");
+	alert(
+		gettext("Copy to clipboard failed because your browser prevents it.\n")
+		+ interpolate(gettext("For Mozilla Firefox, go to about:config and set the value of %s to 'true'."), ["signed.applets.codebase_principal"])
+	);
 	return false;
 }
 
