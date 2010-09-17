@@ -7,7 +7,7 @@
 	<form method="get" action="{% url main %}">
 		<p class="filter">
 			<span>Filter </span>
-			<input type="text" name="filter" value="{{ entry_filter|default:"" }}" class="pwlistfilter" autocomplete="off" />
+			<input type="text" name="filter" value="{{ entry_filter|default:"" }}" class="pwlistfilter" size=18 autocomplete="off" />
 			{% if entry_filter %}
 			<a href="{% url main %}" class="clear_filter">clear</a>
 			{% endif %}

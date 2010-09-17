@@ -1,6 +1,6 @@
 {% load i18n %}
 <form action="{{ action }}" method="post" class="deleteform">
 	{% csrf_token %}
-	<input type="hidden" name="delete_id" value="{{ delete_id }}" class="delete_id" />
-	<input type="submit" name="delete_entry" value="{{ delete_text }}" class="delete_button" title="{% trans "Delete" %}" />
+	<div class="hidden"><input type="hidden" name="delete_id" value="{{ delete_id }}" class="delete_id" /></div>
+	<div class="inputbox"><input type="submit" name="delete_entry" value="{{ delete_text }}" class="delete_button" title="{% trans "Delete" %}" /></div>
 </form>

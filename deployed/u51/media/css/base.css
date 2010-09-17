@@ -22,6 +22,14 @@ textarea {
 	border: 1px solid #487858;
 	background-color: transparent;
 	color: inherit;
+	color: #284533;
+	padding-left: .1em;
+	padding-right: .1em;
+}
+
+textarea {
+	font-family: sans-serif;
+	font-size: .8em;
 }
 
 .noborder {
@@ -58,5 +66,13 @@ div.top.right {
 }
 
 div.top form {
+	display: inline;
+}
+
+.hidden {
+	display: none;
+}
+
+div.inline {
 	display: inline;
 }
