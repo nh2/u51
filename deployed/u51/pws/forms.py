@@ -1,5 +1,4 @@
 from django import forms
-from django.utils.translation import ugettext_lazy as _
 from u51.pws import models
 
 class EntryForm(forms.ModelForm):
