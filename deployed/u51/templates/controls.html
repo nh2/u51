@@ -1,6 +1,6 @@
 {% load i18n %}
 <div class="top right">
-	<a href="{% url settings %}"><input type="button" name="settings" value="Einstellungen" class="settings_button noborder" /></a>
+	<a href="{% url settings %}"><input type="button" name="settings" value="{% trans "Settings" %}" class="settings_button noborder" /></a>
 	<form action="{% url logout %}" method="post" class="logoutform">
 		{% csrf_token %}
 		<div class="inputbox inline"><input type="submit" name="logout" value="{% trans "Logout" %}" class="logout_button" /></div>
