@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: u51\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-17 18:36+0200\n"
+"POT-Creation-Date: 2010-09-17 19:35+0200\n"
 "PO-Revision-Date: 2010-09-16 16:57+0200\n"
 "Last-Translator: Niklas Hambüchen <nh2@deditus.de>\n"
 "Language-Team: \n"
@@ -69,6 +69,10 @@ msgstr "Benutzername"
 #: pws/templates/pws/pwlist.html:52
 msgid "No entries."
 msgstr "Keine Einträge vorhanden."
+
+#: templates/controls.html:3
+msgid "Settings"
+msgstr "Einstellungen"
 
 #: templates/controls.html:6
 msgid "Logout"
