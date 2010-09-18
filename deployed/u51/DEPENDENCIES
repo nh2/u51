@@ -1,0 +1,14 @@
+Add symlink to the following projects, put them in right here,
+install them system-wide or add them otherwise to the PYTHONPATH.
+
+Syntax:
+[link/directory name]
+[website]
+
+---
+
+staticfiles
+http://pypi.python.org/pypi/django-staticfiles/
+
+templatetag_sugar
+http://pypi.python.org/pypi/django-templatetag-sugar/
