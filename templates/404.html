@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block media %}
+<style type="text/css">
+	@import url("/media/css/base.css");
+	@import url("/media/css/errors.css");
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="errorpage">
+	<h2>{% trans "Page not found." %}</h2>
+	<h3>404</h3>
+	<p>{% trans "The address you tried to visit does not exist." %}</p>
+	<p><a href="{% url main %}">{% trans "Click here to go to the main page." %}</a></p>
+</div>
+
+{% endblock %}x
