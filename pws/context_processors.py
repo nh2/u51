@@ -1,8 +1,8 @@
 from django.conf import settings
-from u51.pws.AuthBackends import password_set
+from u51.tools.auth.backends import SingleUserBackend
 
 def all(request):
 	return {
 		'Media': settings.MEDIA,
-		'password_set': password_set(),
+		'password_set': SingleUserBackend().password_set(),
 	}
