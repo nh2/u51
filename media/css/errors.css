@@ -1,0 +1,9 @@
+.errorpage {
+	text-align: center;
+	margin: 2em auto;
+	padding: 1em;
+	width: 40%;
+	border: 5px solid #870909;
+	
+	line-height: 1.8em;
+}

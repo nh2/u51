@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block media %}
+<style type="text/css">
+	@import url("/media/css/base.css");
+	@import url("/media/css/errors.css");
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="errorpage">
+	<h2>{% trans "Server Error" %}</h2>
+	<h3>500</h3>
+</div>
+
+{% endblock %}x
