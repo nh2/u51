@@ -3,6 +3,8 @@
 {% block head %}
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>{% block title %}u51{% endblock %}</title>
+
+	{% block media %}
 	<link rel="shortcut icon" type="image/x-icon" href="{{ MEDIA_URL }}img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/base.css" />
 
@@ -23,6 +25,7 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}pws/js/all.js"></script>
 
 	{% block extrahead %}{% endblock %}
+	{% endblock %}
 {% endblock %}
 
 {% block body %}
