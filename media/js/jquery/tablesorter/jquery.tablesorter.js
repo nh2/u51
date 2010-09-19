@@ -74,6 +74,12 @@
  * @option Boolean cancelSelection (optional) 	Boolean flag indicating if tablesorter should cancel selection of the table headers text.
  * 												Default value: true
  *
+ * @option void before_replace(table) (optional) 	Function called when the sorting is finished, just before the old table is replaced with the sorted contents. Has no effect if 'appender' is specified.
+ *
+ * @option void appender(table,rows) (optional) 	If this function is specified, tablesorter does not create the sorted table on its own. Instead, this function is called with the table to sort and the sorted rows in an array as arguments so that the user can implement the actual change on the table.
+ *
+ * @option Object filter(row) (optional) 	Function called to sort out rows that shall not be used to build the cache and therefore are not sorted. Must return the rows to be sorted. Useful in conjuction with 'appender' to sort in special rows manually.
+ *
  * @option Boolean debug (optional) 			Boolean flag indicating if tablesorter should display debuging information usefull for development.
  *
  * @type jQuery
@@ -88,7 +94,6 @@
 (function($) {
 	$.extend({
 		tablesorter: new function() {
-			
 			var parsers = [], widgets = [];
 			
 			this.defaults = {
@@ -110,6 +115,9 @@
 				headerList: [],
 				dateFormat: "us",
 				decimal: '.',
+				before_replace: function(table){},
+				appender: null,
+				filter: function(row){ return row; },
 				debug: false
 			};
 			
@@ -202,7 +210,7 @@
 						/** Add the table data to main data array */
 						var c = table.tBodies[0].rows[i], cols = [];
 					
-						cache.row.push($(c));
+						cache.row.push(table.config.filter($(c)));
 						
 						for(var j=0; j < totalCells; ++j) {
 							cols.push(parsers[j].format(getElementText(table.config,c.cells[j]),table,c.cells[j]));	
@@ -248,32 +256,29 @@
 					r = c.row, 
 					n= c.normalized, 
 					totalRows = n.length, 
-					checkCell = (n[0].length-1), 
-					tableBody = $(table.tBodies[0]),
-					rows = [];
+					checkCell = (n[0].length-1);
+
+				if(table.config.appender) {
+					var rows = [];
+					for (var i=0;i < totalRows; i++) {
+						rows.push(r[n[i][checkCell]]);
+					}
+					table.config.appender(table,rows);
+				} else {
+					var tableBody = $("<tbody>")[0];
 				
-				for (var i=0;i < totalRows; i++) {
-					rows.push(r[n[i][checkCell]]);	
-					if(!table.config.appender) {
-						
+					for (var i=0;i < totalRows; i++) {
 						var o = r[n[i][checkCell]];
 						var l = o.length;
 						for(var j=0; j < l; j++) {
-							
-							tableBody[0].appendChild(o[j]);
+						
+							tableBody.appendChild(o[j]);
 						
 						}
-						
-						//tableBody.append(r[n[i][checkCell]]);
 					}
-				}	
-				
-				if(table.config.appender) {
-				
-					table.config.appender(table,rows);	
+					table.config.before_replace(table);
+					table.replaceChild(tableBody, table.tBodies[0]);
 				}
-				
-				rows = null;
 				
 				if(table.config.debug) { benchmark("Rebuilt table:", appendTime); }
 								

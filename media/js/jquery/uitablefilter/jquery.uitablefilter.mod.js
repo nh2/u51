@@ -17,8 +17,11 @@
  *   optional arguments:
  *     column to limit search too (the column title in the table header)
  *     ifHidden - callback to execute if one or more elements was hidden
+ *     on_hide - callback to execute when an element gets hidden
+ *     on_show - callback to execute when an element gets shown
+ *     exclude_filter - filter function to limit the rows to be searched in. Must return the rows to be searched in
  */
-jQuery.uiTableFilter = function(jq, phrase, column, ifHidden, hide_callback, show_callback){
+jQuery.uiTableFilter = function(jq, phrase, column, ifHidden, on_hide, on_show, exclude_filter){
   var new_hidden = false;
   if( this.last_phrase === phrase ) return false;
 
@@ -26,8 +29,8 @@ jQuery.uiTableFilter = function(jq, phrase, column, ifHidden, hide_callback, sho
   var words = phrase.toLowerCase().split(" ");
 
   // these function pointers may change
-  var matches = function(elem) { elem.show(); if(show_callback) show_callback(elem) }
-  var noMatch = function(elem) { elem.hide(); if(hide_callback) hide_callback(elem); new_hidden = true }
+  var matches = function(elem) { elem.show(); if(on_show) on_show(elem) }
+  var noMatch = function(elem) { elem.hide(); if(on_hide) on_hide(elem); new_hidden = true }
   var getText = function(elem) { return elem.text() }
 
   if( column ) {
@@ -56,12 +59,14 @@ jQuery.uiTableFilter = function(jq, phrase, column, ifHidden, hide_callback, sho
 
     // only hide visible rows
     matches = function(elem) {;}
-    var elems = jq.find("tbody > tr:visible").not(".nofilter")
+    var elems = jq.find("tbody > tr:visible");
   }
   else {
     new_hidden = true;
-    var elems = jq.find("tbody > tr").not(".nofilter")
+    var elems = jq.find("tbody > tr");
   }
+  if( exclude_filter )
+    elems = exclude_filter(elems);
 
   elems.each(function(){
     var elem = jQuery(this);

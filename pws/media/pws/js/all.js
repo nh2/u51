@@ -30,7 +30,7 @@ function errors() {
 			}
 		}
 	}
-	$('.errorlist').each(function(){
+	$('ul.errorlist').each(function(){
 		var el = $(this);
 		el.hide();
 		var tipel = el.parents('tr').first().find('th').first();
@@ -82,20 +82,21 @@ function filter() {
 			qtip.qtip('hide');
 	}
 	$('.filter label').hide();
-	var filterinput = $('.pwlistfilter');
+	var filterinput = $('input.pwlistfilter');
 	var qtip = filterinput.qtip(filterProperties(filterinput.width(), true));
 
 	// filter textbox
-	var hide_callback = function(elem){ elem.prev('.empty').hide() };
-	var show_callback = function(elem){ elem.prev('.empty:hidden').show() };
+	var on_hide = function(elem){ elem.prev('tr.empty').hide() };
+	var on_show = function(elem){ elem.prev('tr.empty:hidden').show() };
+	var exclude_filter = function(elem){ return elem.not('.empty') };
 	var filtertext = filterinput.text();
-	var table = $('.pwlist');
+	var table = $('table.pwlist');
 	filterinput.keyup(function() {
 		var new_filtertext = filterinput.val();
 		if(filtertext != new_filtertext) {
 			filtertext = new_filtertext;
 			showQtipOnText(qtip, filtertext);
-			$.uiTableFilter(table, filtertext, false, false, hide_callback, show_callback);
+			$.uiTableFilter(table, filtertext, false, false, on_hide, on_show, exclude_filter);
 		}
 	});
 
@@ -105,7 +106,7 @@ function filter() {
 }
 
 function pwlist() {
-	var table = $('.pwlist');
+	var table = $('table.pwlist');
 	var rows = $('tbody tr:not(.empty)', table);
 	var newempty = $('<tr class="empty nofilter"><td /><td /><td /><td /><td /><td /><\/tr>');
 
@@ -113,16 +114,12 @@ function pwlist() {
 
 	// table sorting
 	table.tablesorter({
-		sortList: [[0,0]]
-	});
-	table.bind('sortStart',function() {
-	}).bind('sortEnd',function() {
-		$('.empty').remove();
-		newempty.insertBefore(rows);
+		sortList: [[0,0]],
+		filter: function(row){ return row.not('tr.nofilter') },
+		before_replace: function(table){ newempty.insertBefore($(rows)) }
 	});
 
-
-	var pws = $('.pw');
+	var pws = $('td.pw');
 
 	// Remove standard CSS show on hover class
 	pws.removeClass('showonhover');
@@ -154,7 +151,7 @@ function pwlist() {
 		menu.children('.actions').fadeOut('fast');
 	}
 
-	$('.pwmenu').hoverIntent({
+	$('.pwmenu', pws).hoverIntent({
 		sensitivity: 2, // number = sensitivity threshold (must be 1 or higher)
 		interval: 50,   // number = milliseconds for onMouseOver polling interval
 		over: show,     // function = onMouseOver callback (required)
@@ -177,13 +174,14 @@ function pwlist() {
 	});
 
 
-$.fn.trSlideUp = function(speed, callback) {
-	$(this).css('height',$(this).css('height')).empty().animate({ height: 'hide', opacity: 'hide' }, speed ? speed : 'normal', callback);
-}
+	$.fn.trSlideUp = function(speed, callback) {
+		$(this).css('height',$(this).css('height')).empty().animate({ height: 'hide', opacity: 'hide' }, speed ? speed : 'normal', callback);
+	}
 
 	// AJAX deletion
-	$('form.deleteform').submit(function(){ return false });
-	$('.delete_button').click(function(){
+	var deleteform = $('form.deleteform')
+	deleteform.submit(function(){ return false });
+	$('.delete_button', deleteform).click(function(){
 		var button = $(this);
 		var tr = button.parents('tr');
 		var empty = tr.prev('.empty');
