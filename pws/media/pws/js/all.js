@@ -81,7 +81,7 @@ function filter() {
 		else
 			qtip.qtip('hide');
 	}
-	$('.filter span').hide();
+	$('.filter label').hide();
 	var filterinput = $('.pwlistfilter');
 	var qtip = filterinput.qtip(filterProperties(filterinput.width(), true));
 
