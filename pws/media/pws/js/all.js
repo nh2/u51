@@ -86,10 +86,17 @@ function filter() {
 	var qtip = filterinput.qtip(filterProperties(filterinput.width(), true));
 
 	// filter textbox
+	var hide_callback = function(elem){ elem.prev('.empty').hide() };
+	var show_callback = function(elem){ elem.prev('.empty:hidden').show() };
+	var filtertext = filterinput.text();
 	var table = $('.pwlist');
 	filterinput.keyup(function() {
-		showQtipOnText(qtip, this.value);
-		$.uiTableFilter(table, this.value);
+		var new_filtertext = filterinput.val();
+		if(filtertext != new_filtertext) {
+			filtertext = new_filtertext;
+			showQtipOnText(qtip, filtertext);
+			$.uiTableFilter(table, filtertext, false, false, hide_callback, show_callback);
+		}
 	});
 
 	filterinput.parents('div:first').submit(function(){ return false });

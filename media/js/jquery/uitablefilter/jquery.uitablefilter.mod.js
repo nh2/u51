@@ -18,7 +18,7 @@
  *     column to limit search too (the column title in the table header)
  *     ifHidden - callback to execute if one or more elements was hidden
  */
-jQuery.uiTableFilter = function(jq, phrase, column, ifHidden){
+jQuery.uiTableFilter = function(jq, phrase, column, ifHidden, hide_callback, show_callback){
   var new_hidden = false;
   if( this.last_phrase === phrase ) return false;
 
@@ -26,8 +26,8 @@ jQuery.uiTableFilter = function(jq, phrase, column, ifHidden){
   var words = phrase.toLowerCase().split(" ");
 
   // these function pointers may change
-  var matches = function(elem) { elem.show() }
-  var noMatch = function(elem) { elem.hide(); new_hidden = true }
+  var matches = function(elem) { elem.show(); if(show_callback) show_callback(elem) }
+  var noMatch = function(elem) { elem.hide(); if(hide_callback) hide_callback(elem); new_hidden = true }
   var getText = function(elem) { return elem.text() }
 
   if( column ) {
