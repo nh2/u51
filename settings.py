@@ -56,7 +56,7 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
 try:
-    SECRET_KEY
+	SECRET_KEY
 except NameError:
 	from tools.key import get_generate_secret_key
 	SECRET_KEY = get_generate_secret_key(PROJECT_ROOT)
