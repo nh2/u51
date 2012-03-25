@@ -96,6 +96,7 @@ td.showonhover:hover {
 	border-top: 1px solid #94da3a;
 	border-bottom: 1px solid #94da3a;
 	background-color: #e0ffb8;
+	z-index: 10;
 }
 
 .pwmenu .actions li {
