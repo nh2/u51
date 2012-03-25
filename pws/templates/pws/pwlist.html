@@ -1,15 +1,16 @@
+{% load url from future %}
 {% load ttags %}
 {% load i18n %}
 {% block pwlist %}
 
 {% if entry_list or entry_filter %}
 <div class="top left">
-	<form method="get" action="{% url main %}">
+	<form method="get" action="{% url 'main' %}">
 		<p class="filter">
 			<label for="filter">Filter </label>
 			<input type="text" name="filter" value="{{ entry_filter|default:"" }}" class="pwlistfilter" size=18 autocomplete="off" />
 			{% if entry_filter %}
-			<a href="{% url main %}" class="clear_filter">clear</a>
+			<a href="{% url 'main' %}" class="clear_filter">clear</a>
 			{% endif %}
 		</p>
 	</form>
@@ -42,7 +43,7 @@
 			<span class="unixtime">{{ entry.created|date:"U" }}</span>
 			<span class="humantime">{{ entry.created|date:"SHORT_DATE_FORMAT" }}</span>
 		</td>
-		{% url delete as delete_url %}
+		{% url 'delete' as delete_url %}
 		<td class="td_deleteform">{% deleteform entry.id "X" delete_url %}</td>
 	</tr>
 	{% endfor %}
