@@ -5,6 +5,9 @@ class SingleUserBackend(object):
 	"""
 	Authenticate against only one user defined in settings.LOGIN_USER.
 	"""
+
+	supports_inactive_user = True
+
 	def __init__(self, single_user_name=None):
 		self.single_user_name = single_user_name or settings.LOGIN_USER
 
