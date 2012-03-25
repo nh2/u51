@@ -4,5 +4,9 @@ import sys, os, user
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = os.path.join(PROJECT_ROOT, 'db_dev.sqlite')
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(PROJECT_ROOT, 'db_dev.sqlite'),
+	},
+}

@@ -7,11 +7,8 @@ Syntax:
 
 ---
 
-django 1.2
+django 1.4
 http://www.djangoproject.com/
-
-staticfiles 0.3.2
-http://pypi.python.org/pypi/django-staticfiles/
 
 templatetag_sugar 0.1
 http://pypi.python.org/pypi/django-templatetag-sugar/
