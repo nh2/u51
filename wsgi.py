@@ -13,7 +13,32 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
+import sys
 import os
+
+# Assumed directory structure:
+#
+#     /path/to/somewhere/
+#         django/
+#             Django-1.4.x
+#         u51/
+#             pws/
+#             settings.py
+
+# For Apache with modwsgi, use:
+#
+#     WSGIScriptAlias / /path/to/somewhere/u51/wsgi.py
+#
+#     <Directory /path/to/somewhere/u51/>
+#         <Files wsgi.py>
+#             Order deny,allow
+#             Allow from all
+#         </Files>
+#     </Directory>
+
+sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'django', 'Django-1.4.x')))
+sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.realpath(os.path.dirname(__file__)))
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "u51.settings")
 
