@@ -1,6 +1,6 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 from django.conf import settings
-from django.views.generic import list_detail
+from django.views.generic import ListView
 from u51.pws.models import Entry
 from u51.pws import views, forms
 
@@ -13,7 +13,8 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
 	urlpatterns += patterns('',
-		(r'^test/pwlist/$', list_detail.object_list, {'queryset': Entry.objects.all(), 'template_object_name': 'entry'}, 'test-pwlist'),
+		(r'^test/pwlist/$', ListView.as_view(model=Entry, template_name='test-pwlist'), {}, 'test-pwlist'),
+		#(r'^test/pwlist/$', list_detail.object_list, {'queryset': Entry.objects.all(), 'template_object_name': 'entry'}, 'test-pwlist'),
 
 		(r'^test/edit/$', views.update_entry, {'next': 'test-update', 'template': 'pws/pwform.html'}, 'test-update'),
 		(r'^test/edit/(?P<id>\d+)/$', views.update_entry, {'next': 'test-update', 'template': 'pws/pwform.html'}, 'test-edit'),
