@@ -19,8 +19,24 @@ Set `DEBUG = True` until it works, then MAKE SURE TO SET IT BACK OFF for securit
 Run
 ---
 
-Assuming you have a custom Django installation, run it with:
+You have to set the `PYTHONPATH` in order for u51 to find Django (and it's own `settings.py`).
+
+Initialize the database:
+
+```
+PYTHONPATH=/path/to/django:../ python manage.py syncdb
+```
+
+The above command will ask you to create users.
+Say `yes` and choose `user` as the username.
+The password you choose will be your login password.
+
+Then run the webserver with:
 
 ```
 PYTHONPATH=/path/to/django:../ python manage.py runserver
 ```
+
+If you like it, deploy it on a real WSGI webserver, e.g. using Gunicorn or Apache with mod-wsgi.
+
+*And don't forget to set `DEBUG = False` once it runs!*
