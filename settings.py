@@ -2,7 +2,7 @@ import os
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 PROJECT_NAME = os.path.basename(PROJECT_ROOT)
 
-DEBUG = True
+DEBUG = False  # Set to True for development ONLY (huge security risk for deployment)
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
