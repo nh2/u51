@@ -39,4 +39,6 @@ PYTHONPATH=/path/to/django:../ python manage.py runserver
 
 If you like it, deploy it on a real WSGI webserver, e.g. using Gunicorn or Apache with mod-wsgi.
 
+Do not forget that you have to do that in order to get SSL connections; **if you don't, everyone on the network will be able to read your passwords.** You can also run it locally only and use an SSH port forward, of course.
+
 *And don't forget to set `DEBUG = False` once it runs!*
