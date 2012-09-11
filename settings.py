@@ -23,6 +23,13 @@ DATABASES = {
 	}
 }
 
+# THIS IS SECURITY CRITICAL
+# ONLY SET THIS when behind an HTTPS proxy (e.g. nginx reverse proxy)
+# that makes sure that 'HTTP_X_FORWARDED_PROTOCOL' is set
+# on HTTPS connections and unset for HTTP connections.
+# see https://docs.djangoproject.com/en/1.4/ref/settings/#secure-proxy-ssl-header
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
