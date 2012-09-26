@@ -1,7 +1,9 @@
 u51
 ===
 
-A web password manager.
+A web password manager to run on your private server.
+
+Pull requests are much appreciated.
 
 
 Install
@@ -44,3 +46,22 @@ If you like it, deploy it on a real WSGI webserver, e.g. using Gunicorn or Apach
 Do not forget that you have to do that in order to get SSL connections; **if you don't, everyone on the network will be able to read your passwords.** You can also run it locally only and use an SSH port forward, of course.
 
 *And don't forget to set `DEBUG = False` once it runs!*
+
+
+Security notice
+---------------
+
+If you make your u51 publicly accessible, your passwords are approximately as secure in u51 as Django is secure, at least until in-browser encryption is implemented. **Currently, passwords are saved in the database as clear text.**
+
+Disclaimer: Although interested in making u51 as secure as possible, the authors of u51 take no responsibility for your data being exposed.
+
+
+TODO
+----
+
+These are the features I would implement next:
+
+* Simple deployment instructions for Gunicorn.
+* A warning when using SQLite where the DB is created with read-all permissions.
+* Replacing the filter by something that is not 1000 times slower than it should be.
+* Using in-browser encryption with the login password.
