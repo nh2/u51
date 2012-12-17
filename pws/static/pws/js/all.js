@@ -121,7 +121,7 @@ function init_tablesorter() {
 }
 
 function init_passwords_on_hover() {
-	var pws = $('td.pw');
+	var pws = $('td.pw.showonhover');
 
 	// Remove standard CSS show on hover class
 	pws.removeClass('showonhover');
