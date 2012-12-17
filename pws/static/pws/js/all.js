@@ -28,7 +28,7 @@ function errors() {
 			show: {
 				delay: 0
 			}
-		}
+		};
 	}
 	$('ul.errorlist').each(function(){
 		var el = $(this);
@@ -73,7 +73,7 @@ function filter() {
 			show: {
 				delay: 0
 			}
-		}
+		};
 	}
 	function showQtipOnText(qtip, text) {
 		if(text.length > 0)
@@ -86,9 +86,9 @@ function filter() {
 	var qtip = filterinput.qtip(filterProperties(filterinput.width(), true));
 
 	// filter textbox
-	var on_hide = function(elem){ elem.prev('tr.empty').hide() };
-	var on_show = function(elem){ elem.prev('tr.empty:hidden').show() };
-	var exclude_filter = function(elem){ return elem.not('.empty') };
+	var on_hide = function(elem){ elem.prev('tr.empty').hide(); };
+	var on_show = function(elem){ elem.prev('tr.empty:hidden').show(); };
+	var exclude_filter = function(elem){ return elem.not('.empty'); };
 	var filtertext = filterinput.text();
 	var table = $('table.pwlist');
 	filterinput.keyup(function() {
@@ -100,7 +100,7 @@ function filter() {
 		}
 	});
 
-	filterinput.parents('div:first').submit(function(){ return false });
+	filterinput.parents('div:first').submit(function(){ return false; });
 
 	filterinput.focus();
 }
@@ -115,8 +115,8 @@ function init_tablesorter() {
 	// table sorting
 	table.tablesorter({
 		sortList: [[0,0]],
-		filter: function(row){ return row.not('tr.nofilter') },
-		before_replace: function(table){ newempty.insertBefore($(rows)) }
+		filter: function(row){ return row.not('tr.nofilter'); },
+		before_replace: function(table){ newempty.insertBefore($(rows)); }
 	});
 }
 
@@ -179,11 +179,11 @@ function init_passwords_on_hover() {
 function init_ajax_delete() {
 	$.fn.trSlideUp = function(speed, callback) {
 		$(this).css('height',$(this).css('height')).empty().animate({ height: 'hide', opacity: 'hide' }, speed ? speed : 'normal', callback);
-	}
+	};
 
 	// AJAX deletion
-	var deleteform = $('form.deleteform')
-	deleteform.submit(function(){ return false });
+	var deleteform = $('form.deleteform');
+	deleteform.submit(function(){ return false; });
 	$('.delete_button', deleteform).click(function(){
 		var button = $(this);
 		var tr = button.parents('tr');
@@ -192,8 +192,8 @@ function init_ajax_delete() {
 			if(json['success']) {
 				tr.css('background-color', tr.children(':first').css('background-color'));
 				tr.children().fadeOut('fast', function(){
-					tr.trSlideUp('fast', function(){ $(this).remove() });
-					empty.trSlideUp('fast', function(){ $(this).remove() });
+					tr.trSlideUp('fast', function(){ $(this).remove(); });
+					empty.trSlideUp('fast', function(){ $(this).remove(); });
 				});
 			}
 		}, 'json');
