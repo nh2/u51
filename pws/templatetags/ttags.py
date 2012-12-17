@@ -21,6 +21,7 @@ def include_pwlist(context):
 	return {
 		'entry_list': entries,
 		'entry_filter': f,
+		'plain': context.get('plain'),
 	}
 
 @register.inclusion_tag('pws/pwform-flat.html', takes_context=True)

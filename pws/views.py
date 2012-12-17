@@ -19,7 +19,8 @@ def update_entry_get_pwform(request, id=None):
 @login_required
 def main(request, template='pws/main.html'):
 	entry_filter = request.method == 'GET' and request.GET.get('filter')
-	return direct_to_template(request, template, {'entry_filter': entry_filter})
+	plain = request.method == 'GET' and 'plain' in request.GET
+	return direct_to_template(request, template, {'entry_filter': entry_filter, 'plain': plain})
 
 @login_required
 def update_entry(request, id=None, template='pws/main.html', next='main'):

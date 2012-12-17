@@ -37,7 +37,11 @@
 		<td><a href="/edit/{{entry.id}}">{{ entry.name }}</a></td>
 		<td>{{ entry.user }}</td>
 		<td>{{ entry.email }}</td>
+		{% if plain %}
+		<td class="pw">{{ entry.pw }}</td>
+		{% else %}
 		<td class="pw showonhover">{{ entry.pw }}</td>
+		{% endif %}
 		<td><div class="extra">{{ entry.extra }}</div></td>
 		<td>
 			<span class="unixtime">{{ entry.created|date:"U" }}</span>
