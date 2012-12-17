@@ -1,6 +1,7 @@
 {% load url from future %}
 {% load i18n %}
 <div class="top right">
+	<a href="?plain"><input type="button" name="plain" value="{% trans 'unhide all passwords' %}" class="unhide greylink noborder" /></a>
 	<a href="{% url 'settings' %}"><input type="button" name="settings" value="{% trans 'Settings' %}" class="settings_button noborder" /></a>
 	<form action="{% url 'logout' %}" method="post" class="logoutform">
 		{% csrf_token %}

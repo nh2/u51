@@ -76,3 +76,7 @@ div.top form {
 div.inline {
 	display: inline;
 }
+
+.greylink {
+	color: #aaa;
+}
