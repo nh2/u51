@@ -18,20 +18,26 @@ If you choose a DB driver like `postgresql_psycopg2`, make sure you have that dr
 Set `DEBUG = True` until it works, then MAKE SURE TO SET IT BACK OFF for security.
 
 
-Run
----
+Running and updating
+--------------------
 
 You have to set the `PYTHONPATH` in order for u51 to find Django (and it's own `settings.py`).
 
-Initialize the database:
+Initialize/update the database:
 
 ```
 PYTHONPATH=/path/to/django:../ python manage.py syncdb
 ```
 
-The above command will ask you to create users.
+The above command may ask you to create users.
 Say `yes` and choose `user` as the username.
 The password you choose will be your login password.
+
+Update static files using:
+
+```
+PYTHONPATH=/path/to/django:../ python ./manage.py collectstatic
+```
 
 Then run the webserver with:
 
