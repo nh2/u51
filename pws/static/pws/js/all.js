@@ -105,7 +105,7 @@ function filter() {
 	filterinput.focus();
 }
 
-function pwlist() {
+function init_tablesorter() {
 	var table = $('table.pwlist');
 	var rows = $('tbody tr:not(.empty)', table);
 	var newempty = $('<tr class="empty nofilter"><td /><td /><td /><td /><td /><td /><\/tr>');
@@ -118,7 +118,9 @@ function pwlist() {
 		filter: function(row){ return row.not('tr.nofilter') },
 		before_replace: function(table){ newempty.insertBefore($(rows)) }
 	});
+}
 
+function init_passwords_on_hover() {
 	var pws = $('td.pw');
 
 	// Remove standard CSS show on hover class
@@ -172,8 +174,9 @@ function pwlist() {
 			$(this).remove();
 		}).appendTo(self.parent());
 	});
+}
 
-
+function init_ajax_delete() {
 	$.fn.trSlideUp = function(speed, callback) {
 		$(this).css('height',$(this).css('height')).empty().animate({ height: 'hide', opacity: 'hide' }, speed ? speed : 'normal', callback);
 	}
@@ -195,4 +198,12 @@ function pwlist() {
 			}
 		}, 'json');
 	});
+}
+
+function pwlist() {
+	init_tablesorter();
+
+	init_passwords_on_hover();
+
+	init_ajax_delete();
 }
