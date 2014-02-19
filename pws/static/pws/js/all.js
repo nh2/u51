@@ -135,7 +135,7 @@ function init_passwords_on_hover() {
 		<div class="pwmenu">\
 			<p class="pwfield">•••••</p>\
 			<ul class="actions">\
-				<li class="copy">'+gettext('Copy')+'</li>\
+				<li class="copy" title="Invisible copy. Press Ctrl-C after clicking this to copy the password into your clipboard. DO NOT FORGET to put something else into the clipboard after you are done with it!">'+gettext('Copy')+'</li>\
 				<li class="show">'+gettext('Show')+'</li>\
 			</ul>\
 		</div>\
