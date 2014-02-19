@@ -148,7 +148,13 @@ function init_passwords_on_hover() {
 		menu.children('.actions').fadeIn('fast');
 	}
 
+	// Text of the (first) "copy" button
+	var copy_text_orig = $('.actions .copy', pwmenu).first().text();
+
 	function hide() {
+		// Reset copy button text
+		$('.actions .copy', pwmenu).text(copy_text_orig);
+
 		var menu = $(this);
 		menu.children('.actions').fadeOut('fast');
 	}
@@ -163,7 +169,12 @@ function init_passwords_on_hover() {
 
 	// Copy password to clipboard
 	$('.actions .copy', pwmenu).click(function(){
-		copyToClipboard($(this).parents('.pw').data('pw'));
+		var button = $(this);
+		button.text('Copy now! (Ctrl-C)');
+		copyToClipboard(button.parents('.pw').data('pw'), function(){
+			// called on blur of the invisible password field
+			button.text(copy_text_orig);
+		});
 	});
 
 	// Show plain password and hide it on unhover

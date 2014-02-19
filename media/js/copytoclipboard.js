@@ -1,39 +1,14 @@
-function copyToClipboard(text) {
+function copyToClipboard(text, callback) {
 
-// ask for permission to access clipboard
+// Spawn an invisible text box (far outside the document),
+// put the text in and select it so that the user can copy
+// it with the platform specific key combination.
 
-try {
-	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-} catch(e) {
-	alert(
-		gettext("Copy to clipboard failed because your browser prevents it.\n")
-		+ interpolate(gettext("For Mozilla Firefox, go to about:config and set the value of %s to 'true'."), ["signed.applets.codebase_principal"])
-	);
-	return false;
-}
-
-// make a copy of the Unicode
-
-var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
-if (!str) return false; // couldn't get string obj
-str.data = text; // unicode string?
-
-
-// add Unicode & HTML flavors to the transferable widget
-
-var trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
-if (!trans) return false; //no transferable widget found
-
-trans.addDataFlavor("text/unicode");
-trans.setTransferData("text/unicode", str, text.length * 2); // *2 because it's unicode	
-
-
-// copy the transferable widget!
-
-var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"].getService(Components.interfaces.nsIClipboard);
-if (!clipboard) return false; // couldn't get the clipboard
-
-clipboard.setData(trans, null, Components.interfaces.nsIClipboard.kGlobalClipboard);
-return true;
+$('<input type="text" class="hidden-copy-input">').appendTo('body')
+  .css({ position: 'fixed', top: -1000000, left: -1000000 })
+  .val(text)
+  // Remove from DOM on unfocus
+  .focusout(function() { $(this).remove(); callback(); })
+  .select();
 
 }
