@@ -23,8 +23,19 @@
 	padding-left: .2em;
 }
 
+.left td {
+	width: 9em;
+}
+
 .td_submit {
 	text-align: center;
+}
+
+.pwform input[type=text], .pwform input[type=password] {
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
 .pwform input[type=submit] {

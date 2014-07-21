@@ -211,10 +211,51 @@ function init_ajax_delete() {
 	});
 }
 
+function init_generate_password() {
+	$('#id_pw')
+		.css('padding-right', '3.8ex')
+		.parent()
+			.css('position', 'relative')
+
+	function switch_to_hidden() {
+		$('#id_pw_visible').hide();
+		$('#id_pw').val($('#id_pw_visible').val()).show();
+	}
+
+	$('<input type="text" id="id_pw_visible" />')
+		.appendTo($('#id_pw').parent())
+		.hide()
+		.keypress(function(){ setTimeout(function(){
+			switch_to_hidden();
+			$('#id_pw').focus()
+		 }, 0); })
+		.blur(function(){ setTimeout(switch_to_hidden, 0); });
+
+	$('<a href="#" class="gen_pw_button">Gen</a>')
+		.css('position' , 'absolute')
+		.css('top' , 1)
+		.css('right' , 3)
+		.css('font-size', '80%')
+		.insertAfter('#id_pw')
+		.click(function() {
+			// 16 chars, from http://stackoverflow.com/a/9719815/263061
+			var pw =
+				Math.random().toString(36).slice(-8) +
+				Math.random().toString(36).slice(-8);
+			$('#id_pw').hide();
+			$('#id_pw_visible')
+				.val(pw)
+				.show()
+				.select();
+		});
+}
+
 function pwlist() {
 	init_tablesorter();
 
 	init_passwords_on_hover();
 
 	init_ajax_delete();
+
+	init_generate_password();
 }
