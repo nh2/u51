@@ -21,12 +21,14 @@ Set `DEBUG = True` until it works, then MAKE SURE TO SET IT BACK OFF for securit
 Running and updating
 --------------------
 
-You have to set the `PYTHONPATH` in order for u51 to find Django (and it's own `settings.py`).
+You have to set the `PYTHONPATH` in order for u51 to find Django (and its own `settings.py`).
 
 Initialize/update the database:
 
 ```
-PYTHONPATH=/path/to/django:../ python manage.py syncdb
+PYTHONPATH=/path/to/django/:vendor/django-templatetag-sugar/:../ python manage.py makemigrations pws
+PYTHONPATH=/path/to/django/:vendor/django-templatetag-sugar/:../ python manage.py makemigrations
+PYTHONPATH=/path/to/django/:vendor/django-templatetag-sugar/:../ python manage.py migrate
 ```
 
 The above command may ask you to create users.
@@ -36,18 +38,18 @@ The password you choose will be your login password.
 Update static files using:
 
 ```
-PYTHONPATH=/path/to/django:../ python ./manage.py collectstatic
+PYTHONPATH=/path/to/django/:vendor/django-templatetag-sugar/:../ python ./manage.py collectstatic
 ```
 
 Then run the webserver with:
 
 ```
-PYTHONPATH=/path/to/django:../ python manage.py runserver
+PYTHONPATH=/path/to/django/:vendor/django-templatetag-sugar/:../ python manage.py runserver
 ```
 
-You need to set `DEBUG = True` for `runserver` to work.
+You need to set `DEBUG = True` for `runserver` to serve static files, or use `runserver --insecure`.
 
-If you like it, deploy it on a real WSGI webserver, e.g. using Gunicorn or Apache with mod-wsgi.
+If you like it, deploy it on a real WSGI webserver, e.g. using Gunicorn, or nginx with uWSGI or Apache with mod-wsgi.
 
 Do not forget that you have to do that in order to get SSL connections; **if you don't, everyone on the network will be able to read your passwords.** You can also run it locally only and use an SSH port forward, of course.
 
@@ -67,8 +69,8 @@ TODO
 
 These are the features I would implement next:
 
-* We have currently vendored [`django-templatetag-sugar`](https://github.com/alex/django-templatetag-sugar)
-  in `django/django-templatetag-sugar/` because the project is unmaintained
+* We have currently vendored [`vendor/django-templatetag-sugar`](https://github.com/alex/vendor/django-templatetag-sugar)
+  in `vendor/django-templatetag-sugar/` because the project is unmaintained.
   and it needed some changes for u51 to upgrade to Django 2.2.
   We should check if it is still necessary at all or if there are better replacements.
 * Simple deployment instructions for Gunicorn.

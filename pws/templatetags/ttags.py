@@ -4,9 +4,9 @@ from templatetag_sugar.parser import *
 
 register = template.Library()
 
-from u51.pws.models import Entry
-from u51.pws.forms import EntryForm
-from django.core.urlresolvers import reverse
+from pws.models import Entry
+from pws.forms import EntryForm
+from django.urls import reverse
 from django.db.models import Q
 
 @tag(register, [Variable(), Constant("as"), Name()])

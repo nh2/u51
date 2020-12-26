@@ -1,9 +1,11 @@
+from django.shortcuts import render
+
 from django.shortcuts import get_object_or_404, redirect
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse
-from u51.pws.models import Entry
-from u51.pws.forms import EntryForm
+from django.urls import reverse
+from pws.models import Entry
+from pws.forms import EntryForm
 from u51.tools.json import json_response
 
 @login_required
@@ -20,7 +22,7 @@ def update_entry_get_pwform(request, id=None):
 def main(request, template='pws/main.html'):
 	entry_filter = request.method == 'GET' and request.GET.get('filter')
 	plain = request.method == 'GET' and 'plain' in request.GET
-	return direct_to_template(request, template, {'entry_filter': entry_filter, 'plain': plain})
+	return render(request, template, {'entry_filter': entry_filter, 'plain': plain})
 
 @login_required
 def update_entry(request, id=None, template='pws/main.html', next='main'):
@@ -29,7 +31,7 @@ def update_entry(request, id=None, template='pws/main.html', next='main'):
 	action = reverse('edit', args=[pwform.instance.id]) if edit else reverse('update')
 	if pwform.is_valid():
 		return redirect(next)
-	return direct_to_template(request, template, {'pwform': pwform, 'edit': edit, 'action': action})
+	return render(request, template, {'pwform': pwform, 'edit': edit, 'action': action})
 
 @login_required
 def delete_entry(request, next='main'):

@@ -1,5 +1,5 @@
+import json
 from django.http import HttpResponse
-from django.utils import simplejson
 
-def json_response(json):
-	return HttpResponse(simplejson.dumps(json), mimetype='application/javascript')
+def json_response(json_obj):
+	return HttpResponse(json.dumps(json_obj), content_type='application/javascript')
