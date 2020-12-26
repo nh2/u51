@@ -67,6 +67,10 @@ TODO
 
 These are the features I would implement next:
 
+* We have currently vendored [`django-templatetag-sugar`](https://github.com/alex/django-templatetag-sugar)
+  in `django/django-templatetag-sugar/` because the project is unmaintained
+  and it needed some changes for u51 to upgrade to Django 2.2.
+  We should check if it is still necessary at all or if there are better replacements.
 * Simple deployment instructions for Gunicorn.
 * A warning when using SQLite where the DB is created with read-all permissions.
 * Replacing the filter by something that is not 1000 times slower than it should be.
