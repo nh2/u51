@@ -20,7 +20,10 @@ DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3', # Add 'django.db.backends.postgresql_psycopg2', 'django.db.backends.mysql', or 'django.db.backends.sqlite3'.
 		                                        # see https://docs.djangoproject.com/en/dev/ref/settings/#databases
-		'NAME': 'u51-test.db.sqlite3',          # Or path to database file if using sqlite3.
+		'NAME': 'secrets/u51.db.sqlite3',          # Or path to database file if using sqlite3.
+		# Having a `secrets/` subdirectory dir makes it easier to manage file
+		# permissions (e.g. rwx------) of the DB file and the `secret.key` file,
+		# independent of with what permissions Django creates new files.
 		'USER': 'u51',                      # Not used with sqlite3.
 		'PASSWORD': '',                  # Not used with sqlite3.
 		'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.

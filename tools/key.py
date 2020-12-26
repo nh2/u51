@@ -4,7 +4,7 @@ from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
 
-def get_generate_secret_key(root, key_file_name='secret.key'):
+def get_generate_secret_key(root, key_file_name='secrets/secret.key'):
 	key_path = os.path.join(root, key_file_name)
 	try:
 		return Path(key_path).read_text().strip()
