@@ -1,19 +1,39 @@
-from django.conf.urls import *
+from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.i18n import javascript_catalog
-from django.contrib.auth.views import login, logout_then_login, password_change, password_change_done
+from django.views.i18n import JavaScriptCatalog
+from django.contrib.auth.views import LoginView, logout_then_login, PasswordChangeView, PasswordChangeDoneView
 from tools.forms import SingleUserLoginForm, OptionalPasswordChangeForm
 
 # admin.autodiscover()
 
-urlpatterns = patterns('',
-	(r'^', include('u51.pws.urls')),
+urlpatterns = [
+	path('', include('u51.pws.urls')),
 
-	(r'^jsi18n/(?P<packages>\S+?)$', javascript_catalog),
+	path('jsi18n/',
+		JavaScriptCatalog.as_view(),
+		name='javascript-catalog',
+	),
 
-	(r'^login/$', login, {'template_name': 'login.html', 'authentication_form': SingleUserLoginForm}, 'login'),
-	(r'^logout/$', logout_then_login, {}, 'logout'),
-	(r'^settings/$', password_change, {'template_name': 'settings/password_change_form.html', 'password_change_form': OptionalPasswordChangeForm, 'post_change_redirect': '/settings/password_change_done/'}, 'settings'),
-	(r'^settings/password_change_done/$', password_change_done, {'template_name': 'settings/password_change_done.html'}),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+	path('login/',
+		LoginView.as_view(
+			template_name='login.html',
+			authentication_form=SingleUserLoginForm,
+		),
+		name='login',
+	),
+	path('logout/', logout_then_login, {}, 'logout'),
+	path('settings/',
+		PasswordChangeView.as_view(
+			template_name='settings/password_change_form.html',
+			form_class=OptionalPasswordChangeForm,
+			success_url='/settings/password_change_done/',
+		),
+		name='settings',
+	),
+	path('settings/password_change_done/',
+		PasswordChangeDoneView.as_view(
+			template_name='settings/password_change_done.html',
+		),
+	),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

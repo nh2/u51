@@ -1,5 +1,5 @@
 from django import forms
-from u51.pws import models
+from pws import models
 
 class EntryForm(forms.ModelForm):
 

@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 
-class SingleUserBackend(object):
+from django.contrib.auth.backends import ModelBackend
+
+class SingleUserBackend(ModelBackend):
 	"""
 	Authenticate against only one user defined in settings.LOGIN_USER.
 	"""
@@ -10,8 +12,9 @@ class SingleUserBackend(object):
 
 	def __init__(self, single_user_name=None):
 		self.single_user_name = single_user_name or settings.LOGIN_USER
+		super().__init__()
 
-	def authenticate(self, password=None):
+	def authenticate(self, request, password=None):
 		user = self.get_or_create_single_user()
 		pw_valid = user.check_password(password)
 		return user if pw_valid else None

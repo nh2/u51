@@ -1,3 +1,4 @@
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}pws/css/pwlist.css" />
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}pws/css/filter.css" />
-<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/logout.css" />
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pws/css/pwlist.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'pws/css/filter.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/logout.css' %}" />
