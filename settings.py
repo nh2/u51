@@ -92,7 +92,8 @@ STATICFILES_DIRS = [
 	os.path.join(PROJECT_ROOT, 'u51-static'),
 ]
 
-# Load SECRET_KEY from file if not defined
+# Load SECRET_KEY from file if not defined.
+# See https://docs.djangoproject.com/en/2.2/ref/settings/#secret-key
 try:
 	SECRET_KEY
 except NameError:
@@ -106,9 +107,6 @@ STATICFILES_FINDERS = [
 	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 ]
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '**qb)r@5h!t7#sz@7u)6)fbcnkskgtokq#=f2egn4-)=zfw=5!'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [
