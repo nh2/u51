@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 import sys
 import json
 
@@ -11,4 +11,4 @@ data = json.loads(sys.stdin.read())
 # Filter passwords from django DB dump
 pws = [x['fields'] for x in data if x['model'] == 'pws.entry']
 
-print json.dumps(pws, indent=4)
+print(json.dumps(pws, indent=4))
