@@ -9,6 +9,3 @@ Syntax:
 
 django 1.4
 http://www.djangoproject.com/
-
-templatetag_sugar 0.1
-http://pypi.python.org/pypi/django-templatetag-sugar/
