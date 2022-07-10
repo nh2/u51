@@ -45,7 +45,7 @@ with lib;
       let
         djangoEnv = pkgs.python3.withPackages (ps: with ps; [
           gunicorn
-          django_2_2
+          django_4
         ]);
       in {
         description = "u51 password manager";
