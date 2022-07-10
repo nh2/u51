@@ -91,7 +91,7 @@ with lib;
       };
 
     services.nginx.virtualHosts = {
-      "u51.new.deditus.de" = {
+      "u51.example.com" = { # Change this to your domain.
         enableACME = true;
         forceSSL = true;
         locations = {
