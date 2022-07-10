@@ -11,26 +11,26 @@
 <div class="authpage">
 
 	<form method="post" action="{% url 'login' %}">
-	{% csrf_token %}
+		{% csrf_token %}
 
-	{% if password_set %}
-	<table>
-	<tr>
-		<th>
-			{{ form.password.label_tag }}
-			{% if form.errors %}
-				{% inputerror_message _("Wrong password.") %}
-			{% endif %}
-		</th>
-	</tr>
-	<tr>
-		<td>{{ form.password }}</td>
-	</tr>
-	</table>
-	{% endif %}
+		{% if password_set %}
+		<table>
+			<tr>
+				<th>
+					{{ form.password.label_tag }}
+					{% if form.errors %}
+						{% inputerror_message _("Wrong password.") %}
+					{% endif %}
+				</th>
+			</tr>
+			<tr>
+				<td>{{ form.password }}</td>
+			</tr>
+		</table>
+		{% endif %}
 
-	<div class="inputbox"><input type="submit" value="{% trans "Login" %}" /></div>
-	<div class="hidden"><input type="hidden" name="next" value="{{ next }}" /></div>
+		<div class="inputbox"><input type="submit" value="{% trans "Login" %}" /></div>
+		<div class="hidden"><input type="hidden" name="next" value="{{ next }}" /></div>
 	</form>
 </div>
 
