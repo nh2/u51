@@ -8,6 +8,11 @@ TEMPLATE_DEBUG = DEBUG
 ALLOWED_HOSTS = [
 	'localhost',
 	'127.0.0.1',
+	# 'u51.example.com',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+	# 'https://u51.example.com',
 ]
 
 ADMINS = [
